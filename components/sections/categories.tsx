@@ -59,7 +59,7 @@ export function Categories() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 md:py-32 bg-gradient-to-b from-[#0a1628] to-[#0d1f35] relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-28 lg:py-32 bg-gradient-to-b from-[#0a1628] to-[#0d1f35] relative overflow-hidden"
     >
       {/* Ice texture effect */}
       <div
@@ -72,21 +72,21 @@ export function Categories() {
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/5 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <span className="inline-block text-xs text-cyan-400 uppercase tracking-[0.2em] font-semibold mb-4 border border-cyan-400/20 px-4 py-2 rounded-full bg-cyan-400/5">
+          <span className="inline-block text-[10px] sm:text-xs text-cyan-400 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold mb-3 sm:mb-4 border border-cyan-400/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-cyan-400/5">
             Nos gammes
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 text-balance px-2">
             Des gammes structurées pour vos besoins
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-2">
             Notre offre couvre l&apos;ensemble des produits de la mer : crevettes, calamars, poulpes, mollusques,
             poissons méditerranéens, saumon, thon et caviar.
           </p>

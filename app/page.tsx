@@ -6,7 +6,6 @@ import { AboutPreview } from "@/components/sections/about-preview"
 import { BestSellers } from "@/components/sections/best-sellers"
 import { Categories } from "@/components/sections/categories"
 import { QualityProcess } from "@/components/sections/quality-process"
-import { WhyTAFC } from "@/components/sections/why-tafc"
 import { TargetClients } from "@/components/sections/target-clients"
 import { CatalogPreview } from "@/components/sections/catalog-preview"
 import { ContactPreview } from "@/components/sections/contact-preview"
@@ -23,7 +22,6 @@ export default function HomePage() {
         <BestSellers />
         <Categories />
         <QualityProcess />
-        <WhyTAFC />
         <TargetClients />
         <CatalogPreview />
         <ContactPreview />

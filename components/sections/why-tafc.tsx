@@ -2,44 +2,28 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Droplets, Package, Thermometer, FlaskConical, Handshake, Clock } from "lucide-react"
+import { ArrowUpRight, Award, ClipboardCheck, Thermometer, Fish } from "lucide-react"
 
-const benefits = [
+const features = [
   {
-    icon: Droplets,
-    title: "Fraîcheur maîtrisée",
-    description: "Produits pêchés et traités dans les 24h pour une fraîcheur optimale garantie.",
-    color: "from-cyan-500 to-blue-500",
+    title: "Qualité Garantie",
+    description: "Produits certifiés et contrôlés pour une fraîcheur exceptionnelle à chaque commande.",
+    icon: Award,
   },
   {
-    icon: Package,
-    title: "Logistique export rapide",
-    description: "Expédition internationale en 48-72h avec documentation complète.",
-    color: "from-teal-500 to-cyan-500",
+    title: "Contrôles Qualité Rigoureux",
+    description: "Chaque lot est inspecté et vérifié selon des normes strictes avant expédition.",
+    icon: ClipboardCheck,
   },
   {
+    title: "Chaîne Du Froid",
+    description: "Conservation optimale de -18°C à -40°C du départ jusqu'à votre réception.",
     icon: Thermometer,
-    title: "Chaîne du froid garantie",
-    description: "Températures contrôlées de -18°C à -40°C du port à votre établissement.",
-    color: "from-blue-500 to-indigo-500",
   },
   {
-    icon: FlaskConical,
-    title: "Contrôles qualité rigoureux",
-    description: "Tests laboratoire systématiques et certifications internationales.",
-    color: "from-indigo-500 to-purple-500",
-  },
-  {
-    icon: Handshake,
-    title: "Accompagnement B2B",
-    description: "Un interlocuteur dédié pour vos commandes et demandes spécifiques.",
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: Clock,
-    title: "Disponibilité toute l'année",
-    description: "Stock permanent et approvisionnement régulier selon vos besoins.",
-    color: "from-pink-500 to-rose-500",
+    title: "Gamme Diversifiée",
+    description: "Large sélection de produits de la mer pour répondre à tous vos besoins culinaires.",
+    icon: Fish,
   },
 ]
 
@@ -48,88 +32,71 @@ export function WhyTAFC() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-24 md:py-32 bg-gradient-to-b from-[#0d1f35] via-[#0a1628] to-[#0b1a2b] relative overflow-hidden"
-    >
-      {/* Animated background lines */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => (
+    <section ref={sectionRef} className="py-20 md:py-28 bg-[#0c1829] relative overflow-hidden">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        {/* Header section - split layout like reference */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 mb-14 md:mb-20">
           <motion.div
-            key={i}
-            className="absolute h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent"
-            style={{ top: `${20 + i * 20}%`, left: 0, right: 0 }}
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
-            transition={{ delay: 0.5 + i * 0.1, duration: 1 }}
-          />
-        ))}
-      </div>
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-[28px] sm:text-4xl md:text-[42px] lg:text-[46px] font-bold text-white leading-[1.12] tracking-tight text-balance">
+              Pourquoi Choisir TAFC Comme Fournisseur ?
+            </h2>
+          </motion.div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
-        >
-          <span className="inline-block text-xs text-cyan-400 uppercase tracking-[0.2em] font-semibold mb-4 border border-cyan-400/20 px-4 py-2 rounded-full bg-cyan-400/5">
-            Nos avantages
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance">
-            Pourquoi travailler avec{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">TAFC</span> ?
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Des engagements concrets pour une collaboration de confiance avec les professionnels de la restauration et
-            de la distribution.
-          </p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex flex-col justify-center"
+          >
+            <p className="text-white/70 text-[15px] md:text-base leading-relaxed mb-7 max-w-lg">
+              Nous mettons tout en œuvre pour vous offrir des produits de la mer d'exception avec un service
+              irréprochable, adapté aux besoins de votre établissement.
+            </p>
+            <div>
+              <motion.button
+                className="inline-flex items-center gap-2.5 bg-white hover:bg-white/90 text-[#0c1829] font-medium px-6 py-3 rounded-full transition-all duration-300 text-sm"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Découvrir Nos Produits
+                <ArrowUpRight className="w-4 h-4" />
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
 
-        {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + index * 0.1, duration: 0.6 }}
-              className="group"
-            >
-              <div className="relative h-full bg-[#12253a]/60 backdrop-blur-sm rounded-3xl p-8 border border-white/[0.06] hover:border-cyan-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10 overflow-hidden">
-                {/* Hover glow */}
-                <div
-                  className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-10 blur-3xl transition-opacity duration-500`}
-                />
-
-                {/* Icon */}
-                <div className="relative mb-6">
-                  <div
-                    className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.color} bg-opacity-20 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <benefit.icon className="w-7 h-7 text-white" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+          {features.map((feature, index) => {
+            const IconComponent = feature.icon
+            return (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.25 + index * 0.1, duration: 0.5 }}
+                className="group"
+              >
+                <div className="relative bg-[#101f33] rounded-2xl p-6 md:p-7 border border-white/10 hover:border-white/20 transition-all duration-300 h-full hover:bg-[#152640]">
+                  <div className="h-32 sm:h-36 mb-5 flex items-center justify-center rounded-xl bg-[#0c1829] border border-white/5 group-hover:border-white/10 transition-all duration-300">
+                    <IconComponent
+                      className="w-14 h-14 text-white/50 group-hover:text-white/70 transition-colors duration-300"
+                      strokeWidth={1.3}
+                    />
                   </div>
-                  {/* Pulse effect on hover */}
-                  <div
-                    className={`absolute inset-0 w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-30 animate-ping`}
-                    style={{ animationDuration: "2s" }}
-                  />
+
+                  <h3 className="font-semibold text-sm md:text-[15px] text-white text-center leading-snug mb-2">
+                    {feature.title}
+                  </h3>
+
+                  <p className="text-white/50 text-xs text-center leading-relaxed">{feature.description}</p>
                 </div>
-
-                {/* Content */}
-                <h3 className="font-bold text-xl text-white mb-3 group-hover:text-cyan-400 transition-colors">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed">{benefit.description}</p>
-
-                {/* Bottom line accent */}
-                <div
-                  className={`absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r ${benefit.color} opacity-0 group-hover:opacity-50 transition-opacity duration-500`}
-                />
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

@@ -43,26 +43,26 @@ export function Footer() {
   return (
     <footer className="bg-[#042635] overflow-hidden">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-16">
         {/* Pre-Footer CTA Section */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 text-center mb-12 border border-white/10">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center mb-10 sm:mb-12 border border-white/10">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-3">
             Prêt à faire évoluer votre offre en produits de la mer ?
           </h3>
-          <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
+          <p className="text-slate-300 mb-5 sm:mb-6 max-w-2xl mx-auto text-sm sm:text-base">
             Collaborez avec TAFC pour une qualité premium et un export fiable.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#ff7a59] to-[#ff6b4a] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#ff7a59] to-[#ff6b4a] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-sm sm:text-base"
           >
             Demander un devis
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
           </Link>
         </div>
 
         {/* Main 4-Column Footer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           {/* Column 1: Brand & About */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-5">

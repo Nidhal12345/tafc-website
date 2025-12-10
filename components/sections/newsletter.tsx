@@ -30,7 +30,7 @@ export function Newsletter() {
   }
 
   return (
-    <section className="relative py-16 md:py-20 overflow-hidden">
+    <section className="relative py-12 sm:py-14 md:py-18 lg:py-20 overflow-hidden">
       {/* Orange/Amber background */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600" />
 
@@ -75,7 +75,7 @@ export function Newsletter() {
         </svg>
       </div>
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ export function Newsletter() {
           className="text-center"
         >
           {/* Heading */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8 uppercase tracking-wide">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 sm:mb-8 uppercase tracking-wide px-2">
             Inscrivez-vous pour les offres spéciales
           </h2>
 
@@ -144,21 +144,6 @@ export function Newsletter() {
               </Button>
             </form>
           )}
-
-          {/* Privacy text */}
-          <p className="text-xs text-white/70 mt-6 max-w-3xl mx-auto leading-relaxed">
-            En soumettant ce formulaire, vous acceptez de recevoir des communications marketing (offres promotionnelles
-            et rappels) de TAFC. Le consentement n&apos;est pas une condition d&apos;achat. Des frais de messagerie
-            peuvent s&apos;appliquer. Vous pouvez vous désinscrire à tout moment. Consultez notre{" "}
-            <a href="/privacy" className="underline hover:text-white">
-              Politique de confidentialité
-            </a>{" "}
-            et nos{" "}
-            <a href="/terms" className="underline hover:text-white">
-              Conditions d&apos;utilisation
-            </a>
-            .
-          </p>
         </motion.div>
       </div>
     </section>

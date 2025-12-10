@@ -15,9 +15,9 @@ const socialLinks = [
 
 export function ContactPreview() {
   return (
-    <section className="py-20 md:py-28 bg-tafc-bg-light">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+    <section className="py-14 sm:py-16 md:py-24 lg:py-28 bg-tafc-bg-light">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Map Card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -25,13 +25,13 @@ export function ContactPreview() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Card className="overflow-hidden rounded-2xl border-tafc-border shadow-lg h-full min-h-[300px]">
-              <div className="relative w-full h-full min-h-[300px]">
+            <Card className="overflow-hidden rounded-xl sm:rounded-2xl border-tafc-border shadow-lg h-full min-h-[250px] sm:min-h-[300px]">
+              <div className="relative w-full h-full min-h-[250px] sm:min-h-[300px]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311542.5044073225!2d8.5!3d36.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x125595448316a4e1%3A0x3a84333aaa019bef!2sTunisia!5e0!3m2!1sen!2sus!4v1234567890"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, minHeight: "300px" }}
+                  style={{ border: 0, minHeight: "250px" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -49,11 +49,11 @@ export function ContactPreview() {
             transition={{ duration: 0.6 }}
             className="flex flex-col justify-center"
           >
-            <p className="text-xs text-tafc-blue-medium uppercase tracking-wider font-semibold mb-3">Contact</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-tafc-text-primary mb-4">
+            <p className="text-[10px] sm:text-xs text-tafc-blue-medium uppercase tracking-wider font-semibold mb-2 sm:mb-3">Contact</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-tafc-text-primary mb-3 sm:mb-4">
               Parlons de vos besoins en produits de la mer
             </h2>
-            <p className="text-tafc-text-secondary mb-8 leading-relaxed">
+            <p className="text-sm sm:text-base text-tafc-text-secondary mb-6 sm:mb-8 leading-relaxed">
               Dites-nous quel type d&apos;établissement vous êtes, vos volumes, vos fréquences de livraison… Notre
               équipe vous accompagne dans la définition de votre approvisionnement.
             </p>

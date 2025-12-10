@@ -1,122 +1,113 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
+import { motion } from "framer-motion"
 import Link from "next/link"
 
 export function TargetClients() {
-  const containerRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [isMobile, setIsMobile] = useState(false)
   const [isVideoVisible, setIsVideoVisible] = useState(false)
 
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768)
-  }, [])
-
-  // Intersection Observer to lazy load and play video only when visible
+  // Lazy-load + autoplay video
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVideoVisible(true)
-            video.play().catch(() => {
-              // Autoplay blocked, that's okay
-            })
-          } else {
-            video.pause()
-          }
-        })
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVideoVisible(true)
+          video.play().catch(() => { })
+        } else {
+          video.pause()
+        }
       },
-      { threshold: 0.1 }
+      { threshold: 0.35, rootMargin: "200px" }
     )
 
     observer.observe(video)
     return () => observer.disconnect()
   }, [])
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  })
-
-  // Text starts above the video and moves down into the video center
-  const textY = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? 350 : 450])
-
-  // Text color transition - starts dark, becomes white when entering video
-  const textColorR = useTransform(scrollYProgress, [0, 0.35, 0.5], [31, 140, 255])
-  const textColorG = useTransform(scrollYProgress, [0, 0.35, 0.5], [26, 135, 255])
-  const textColorB = useTransform(scrollYProgress, [0, 0.35, 0.5], [19, 125, 255])
-
-  // Video transforms - simplified for better performance
-  const videoScale = useTransform(scrollYProgress, [0, 0.5], [0.85, 1])
-  const videoBorderRadius = useTransform(scrollYProgress, [0, 0.5], [16, 0])
-  const outlineOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
-
-  // Video top offset
-  const videoTop = useTransform(scrollYProgress, [0, 0.3], [isMobile ? 180 : 220, 0])
-
   return (
-    <>
-      <div ref={containerRef} className="relative h-[200vh]">
-        <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#f5f3ef]">
-          {/* Text Content */}
-          <motion.div
-            className="pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-col items-center pt-8 md:pt-12"
-            style={{
-              y: textY,
-            }}
-          >
-            <motion.h1
-              className="text-center font-serif text-[2.5rem] leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl px-4"
-              style={{
-                color: useTransform([textColorR, textColorG, textColorB], ([r, g, b]) => `rgb(${r}, ${g}, ${b})`),
-              }}
-            >
-              Sublimez vos cartes avec le <span className="italic">meilleur</span>
-              <br />
-              de la Méditerranée.
-            </motion.h1>
+    <section className="relative isolate overflow-hidden bg-[#f5f3ef] pb-16 pt-24 md:pb-24 md:pt-28">
+      {/* BACKGROUND ACCENT */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl"
+      >
+        <div className="mx-auto aspect-[1108/632] w-[72rem] bg-gradient-to-tr from-tafc-coral/40 via-tafc-coral/25 to-orange-200 opacity-20" />
+      </div>
 
-            <div className="pointer-events-auto mt-4 md:mt-5">
-              <Link
-                href="/products"
-                className="inline-block rounded-full bg-tafc-coral px-7 py-3 text-[15px] font-medium text-white transition-colors duration-200 hover:bg-tafc-coral-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2755d1] focus-visible:ring-offset-2 md:px-8 md:py-3.5 md:text-base"
-              >
-                Voir nos produits
-              </Link>
+      <div className="mx-auto flex max-w-6xl flex-col items-center px-4 sm:px-6 lg:px-8">
+        {/* TEXT */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="flex max-w-3xl flex-col items-center text-center"
+        >
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
+            TUNISIAN · ALGERIAN SEAFOOD
+          </p>
+
+          <h1 className="font-serif text-[2.4rem] leading-[1.05] tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-[3.8rem]">
+            Sublimez vos cartes avec le{" "}
+            <span className="italic text-tafc-coral">meilleur</span>
+            <br /> de la Méditerranée.
+          </h1>
+
+          <p className="mt-4 max-w-xl text-sm text-slate-600 sm:text-base">
+            Des produits ultra-frais, sourcés avec exigence pour les restaurants, hôtels,
+            chefs et professionnels entre la Tunisie et l’Algérie.
+          </p>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+            {/* CTA BUTTON (YOUR ORANGE COLOR) */}
+            <Link
+              href="/products"
+              className="inline-flex items-center justify-center rounded-full bg-tafc-coral px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-tafc-coral-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tafc-coral focus-visible:ring-offset-2"
+            >
+              Voir nos produits
+            </Link>
+
+            <Link
+              href="#about"
+              className="text-sm font-medium text-slate-800 underline-offset-4 hover:underline"
+            >
+              Découvrir notre approche
+            </Link>
+          </div>
+        </motion.div>
+
+        {/* VIDEO CARD */}
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+          className="mt-10 w-full sm:mt-12"
+        >
+          <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[32px] border border-slate-200 bg-slate-900/90 shadow-xl shadow-slate-900/10">
+            {/* OVERLAY GRADIENT */}
+            <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-slate-950/55 via-slate-950/10 to-transparent" />
+
+            {/* DECORATIVE TOP TABS */}
+            <div className="pointer-events-none absolute inset-x-4 top-4 z-[2] flex items-center justify-between">
+              <div className="flex gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-slate-300/70" />
+                <span className="h-2 w-2 rounded-full bg-slate-300/70" />
+                <span className="h-2 w-2 rounded-full bg-slate-300/70" />
+              </div>
+
+              <p className="hidden text-[11px] font-medium uppercase tracking-[0.2em] text-slate-200/70 sm:block">
+                FRESH • DAILY • PREMIUM
+              </p>
+
+              <div className="h-2 w-8 rounded-full bg-slate-300/40" />
             </div>
-          </motion.div>
 
-          {/* Video Container */}
-          <motion.div
-            className="absolute inset-x-0 bottom-0 will-change-transform"
-            style={{
-              top: videoTop,
-              scale: videoScale,
-            }}
-          >
-            <motion.div
-              className="relative h-full w-full overflow-hidden"
-              style={{
-                borderRadius: videoBorderRadius,
-              }}
-            >
-              {/* Outline */}
-              <motion.div
-                className="pointer-events-none absolute inset-0 z-10"
-                style={{
-                  opacity: outlineOpacity,
-                  boxShadow: "inset 0 0 0 2px rgb(20, 23, 81)",
-                  borderRadius: videoBorderRadius,
-                }}
-              />
-
-              {/* Video with lazy loading */}
+            {/* VIDEO */}
+            <div className="relative aspect-[16/9] w-full">
               <video
                 ref={videoRef}
                 className="h-full w-full object-cover"
@@ -127,14 +118,16 @@ export function TargetClients() {
                 poster="/fresh-sea-bass-fish-on-ice.jpg"
               >
                 {isVideoVisible && (
-                  <source src="/2882090-Uhd%203840%202160%2024Fps.mp4" type="video/mp4" />
+                  <source
+                    src="/2882090-Uhd%203840%202160%2024Fps.mp4"
+                    type="video/mp4"
+                  />
                 )}
               </video>
-            </motion.div>
-          </motion.div>
-        </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </>
+    </section>
   )
 }
-

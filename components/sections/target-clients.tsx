@@ -6,10 +6,37 @@ import Link from "next/link"
 
 export function TargetClients() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const [isMobile, setIsMobile] = useState(false)
+  const [isVideoVisible, setIsVideoVisible] = useState(false)
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
+  }, [])
+
+  // Intersection Observer to lazy load and play video only when visible
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVideoVisible(true)
+            video.play().catch(() => {
+              // Autoplay blocked, that's okay
+            })
+          } else {
+            video.pause()
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    observer.observe(video)
+    return () => observer.disconnect()
   }, [])
 
   const { scrollYProgress } = useScroll({
@@ -18,7 +45,6 @@ export function TargetClients() {
   })
 
   // Text starts above the video and moves down into the video center
-  // Starting position is negative (above), moving to center of video
   const textY = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? 350 : 450])
 
   // Text color transition - starts dark, becomes white when entering video
@@ -26,28 +52,27 @@ export function TargetClients() {
   const textColorG = useTransform(scrollYProgress, [0, 0.35, 0.5], [26, 135, 255])
   const textColorB = useTransform(scrollYProgress, [0, 0.35, 0.5], [19, 125, 255])
 
-  // Video transforms
-  const videoScale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1])
-  const videoBorderRadius = useTransform(scrollYProgress, [0, 0.5], [12, 0])
+  // Video transforms - simplified for better performance
+  const videoScale = useTransform(scrollYProgress, [0, 0.5], [0.85, 1])
+  const videoBorderRadius = useTransform(scrollYProgress, [0, 0.5], [16, 0])
   const outlineOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
 
-  // Video top offset - starts lower to leave gap for text
+  // Video top offset
   const videoTop = useTransform(scrollYProgress, [0, 0.3], [isMobile ? 180 : 220, 0])
 
   return (
     <>
       <div ref={containerRef} className="relative h-[200vh]">
         <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#f5f3ef]">
-          {/* Text Content - Positioned at top, above video initially */}
+          {/* Text Content */}
           <motion.div
             className="pointer-events-none absolute inset-x-0 top-0 z-20 flex flex-col items-center pt-8 md:pt-12"
             style={{
               y: textY,
-              transform: "translate3d(0,0,0)",
             }}
           >
             <motion.h1
-              className="text-center font-serif text-[2.5rem] leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+              className="text-center font-serif text-[2.5rem] leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl px-4"
               style={{
                 color: useTransform([textColorR, textColorG, textColorB], ([r, g, b]) => `rgb(${r}, ${g}, ${b})`),
               }}
@@ -67,20 +92,18 @@ export function TargetClients() {
             </div>
           </motion.div>
 
-          {/* Video Container - Starts below the text with a gap */}
+          {/* Video Container */}
           <motion.div
-            className="absolute inset-x-0 bottom-0"
+            className="absolute inset-x-0 bottom-0 will-change-transform"
             style={{
               top: videoTop,
               scale: videoScale,
-              transform: "translate3d(0,0,0)",
             }}
           >
             <motion.div
-              className="relative h-full w-full overflow-hidden will-change-transform"
+              className="relative h-full w-full overflow-hidden"
               style={{
                 borderRadius: videoBorderRadius,
-                transform: "translateZ(0)",
               }}
             >
               {/* Outline */}
@@ -93,20 +116,19 @@ export function TargetClients() {
                 }}
               />
 
+              {/* Video with lazy loading */}
               <video
+                ref={videoRef}
                 className="h-full w-full object-cover"
-                autoPlay
                 loop
                 muted
                 playsInline
-                preload="metadata"
-                style={{
-                  transform: "translateZ(0)",
-                  backfaceVisibility: "hidden",
-                  WebkitBackfaceVisibility: "hidden",
-                }}
+                preload="none"
+                poster="/fresh-sea-bass-fish-on-ice.jpg"
               >
-                <source src="/2882090-Uhd 3840 2160 24Fps.mp4" type="video/mp4" />
+                {isVideoVisible && (
+                  <source src="/2882090-Uhd%203840%202160%2024Fps.mp4" type="video/mp4" />
+                )}
               </video>
             </motion.div>
           </motion.div>
@@ -115,3 +137,4 @@ export function TargetClients() {
     </>
   )
 }
+

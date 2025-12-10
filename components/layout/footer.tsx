@@ -134,29 +134,6 @@ export function Footer() {
           {/* Column 4: Newsletter & Social */}
           <div>
             <h4 className="font-semibold text-white text-lg mb-5">Restez informé</h4>
-
-            {/* Newsletter Form */}
-            <form onSubmit={handleSubscribe} className="mb-6">
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Votre email..."
-                  className="flex-1 px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2.5 bg-gradient-to-r from-[#ff7a59] to-[#ff6b4a] text-white rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300"
-                  aria-label="S'abonner"
-                >
-                  <Send className="w-4 h-4" />
-                </button>
-              </div>
-              {subscribed && <p className="text-cyan-400 text-xs mt-2">Merci pour votre inscription !</p>}
-            </form>
-
             {/* Social Icons */}
             <div>
               <h5 className="text-slate-400 text-sm mb-3">Suivez-nous</h5>

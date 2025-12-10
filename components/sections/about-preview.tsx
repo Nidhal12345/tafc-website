@@ -1,0 +1,217 @@
+"use client"
+
+import Image from "next/image"
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
+import { Ship, Fish, Award, CheckCircle2 } from "lucide-react"
+
+const pillars = [
+  {
+    icon: Ship,
+    title: "Vision",
+    description: "Devenir une référence internationale en produits de la mer méditerranéens de haute qualité.",
+    gradient: "from-cyan-500/20 to-blue-500/20",
+    iconColor: "text-cyan-400",
+  },
+  {
+    icon: Fish,
+    title: "Mission",
+    description:
+      "Fournir des produits sûrs, tracés, adaptés aux besoins des professionnels, tout en respectant l'environnement marin.",
+    gradient: "from-teal-500/20 to-cyan-500/20",
+    iconColor: "text-teal-400",
+  },
+  {
+    icon: Award,
+    title: "Pourquoi TAFC ?",
+    description: "Qualité constante, volumes export, flexibilité et accompagnement B2B personnalisé.",
+    gradient: "from-blue-500/20 to-indigo-500/20",
+    iconColor: "text-blue-400",
+  },
+]
+
+const highlights = [
+  "Partenariat stratégique Tunisie-Algérie",
+  "Flottes modernes et centres certifiés",
+  "Traçabilité complète garantie",
+  "Normes internationales respectées",
+]
+
+export function AboutPreview() {
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+
+  return (
+    <section
+      ref={sectionRef}
+      className="py-24 md:py-32 bg-gradient-to-b from-[#0a1628] via-[#0d1f35] to-[#0a1628] relative overflow-hidden"
+    >
+      {/* Ambient effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,162,232,0.05),transparent_70%)]" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
+        >
+          <span className="inline-block text-xs text-cyan-400 uppercase tracking-[0.2em] font-semibold mb-4 border border-cyan-400/20 px-4 py-2 rounded-full bg-cyan-400/5">
+            Qui sommes-nous
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance leading-tight">
+            Une alliance stratégique entre la{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">Tunisie</span> et
+            l&apos;
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Algérie</span>
+          </h2>
+        </motion.div>
+
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+          {/* Image Collage */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative">
+              {/* Main large image */}
+              <div className="relative h-72 md:h-96 rounded-3xl overflow-hidden shadow-2xl shadow-black/40">
+                <Image
+                  src="/mediterranean-fishing-boats-harbor-tunisia-sunrise.jpg"
+                  alt="Flotte de pêche méditerranéenne TAFC"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5">
+                  <span className="bg-white/10 backdrop-blur-md text-white text-sm font-medium px-4 py-2 rounded-full border border-white/10">
+                    Nos flottes modernes
+                  </span>
+                </div>
+              </div>
+
+              {/* Overlapping smaller images */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="absolute -bottom-8 -right-4 md:right-8 w-40 md:w-52 h-32 md:h-40 rounded-2xl overflow-hidden shadow-2xl border-4 border-[#0a1628]"
+              >
+                <Image
+                  src="/seafood-processing-facility-workers-quality-contro.jpg"
+                  alt="Centre de traitement TAFC"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="absolute -top-6 -right-2 md:right-16 w-36 md:w-44 h-28 md:h-36 rounded-2xl overflow-hidden shadow-2xl border-4 border-[#0a1628]"
+              >
+                <Image
+                  src="/fresh-fish-market-selection-mediterranean-premium.jpg"
+                  alt="Sélection de poissons frais"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+            </div>
+
+            {/* Floating stat card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="absolute -bottom-4 left-4 md:left-8 bg-gradient-to-br from-[#1a3550] to-[#0d2137] p-5 rounded-2xl shadow-2xl border border-cyan-500/20"
+            >
+              <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
+                15+
+              </div>
+              <div className="text-sm text-gray-300 mt-1">Années d&apos;expérience</div>
+            </motion.div>
+          </motion.div>
+
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              TAFC est un acteur majeur de la pêche, de la transformation et de l&apos;export de produits de la mer en
+              Méditerranée. Notre partenariat unique entre la Tunisie et l&apos;Algérie nous permet d&apos;assurer une
+              offre complète et diversifiée.
+            </p>
+            <p className="text-gray-400 leading-relaxed mb-8">
+              Nous travaillons avec des flottes modernes et des centres de conditionnement certifiés pour garantir la
+              sécurité alimentaire, la traçabilité et la durabilité de nos ressources marines.
+            </p>
+
+            {/* Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {highlights.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  className="flex items-center gap-3 group"
+                >
+                  <div className="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+                  </div>
+                  <span className="text-sm text-gray-200 font-medium">{item}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Vision / Mission / Pourquoi TAFC Cards */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {pillars.map((pillar, index) => (
+            <motion.div
+              key={pillar.title}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.6 + index * 0.15, duration: 0.6 }}
+              className="group"
+            >
+              <div
+                className={`relative h-full bg-gradient-to-br ${pillar.gradient} backdrop-blur-xl rounded-3xl p-8 border border-white/[0.08] hover:border-white/[0.15] transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10 overflow-hidden`}
+              >
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Illuminated border effect */}
+                <div
+                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(0,162,232,0.1) 0%, transparent 50%, rgba(0,146,208,0.1) 100%)",
+                  }}
+                />
+
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300">
+                    <pillar.icon className={`w-7 h-7 ${pillar.iconColor}`} />
+                  </div>
+                  <h3 className="font-bold text-xl text-white mb-3 tracking-tight">{pillar.title}</h3>
+                  <p className="text-gray-300/90 leading-relaxed">{pillar.description}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

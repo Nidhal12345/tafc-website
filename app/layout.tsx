@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css"
 import { Sora, Manrope } from 'next/font/google'
 
@@ -50,6 +51,7 @@ export default function RootLayout({
       <body className={`${inter.className} font-sans antialiased ${sora.variable} ${manrope.variable}`}>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

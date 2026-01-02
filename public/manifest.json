@@ -1,0 +1,19 @@
+{
+  "name": "TAFC - The Tunisian Algerian Fish Company",
+  "short_name": "TAFC",
+  "description": "Fournisseur B2B premium de produits de la mer - Exportateur certifié depuis la Tunisie et l'Algérie",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#042635",
+  "theme_color": "#042635",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "food"],
+  "lang": "fr"
+}

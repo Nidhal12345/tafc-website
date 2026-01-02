@@ -5,29 +5,25 @@ import { Marquee } from "@/components/sections/marquee"
 import { AboutPreview } from "@/components/sections/about-preview"
 import { BestSellers } from "@/components/sections/best-sellers"
 import { Categories } from "@/components/sections/categories"
-import { QualityProcess } from "@/components/sections/quality-process"
 import { TargetClients } from "@/components/sections/target-clients"
 import { CatalogPreview } from "@/components/sections/catalog-preview"
 import { ContactPreview } from "@/components/sections/contact-preview"
-import { Newsletter } from "@/components/sections/newsletter"
 
 export default function HomePage() {
-  return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <Marquee />
-        <AboutPreview />
-        <BestSellers />
-        <Categories />
-        <QualityProcess />
-        <TargetClients />
-        <CatalogPreview />
-        <ContactPreview />
-        <Newsletter />
-      </main>
-      <Footer />
-    </>
-  )
+    return (
+        <>
+            <Header />
+            <main>
+                <Hero />
+                <Marquee />
+                <AboutPreview />
+                <BestSellers />
+                <Categories />
+                <TargetClients />
+                <CatalogPreview />
+                <ContactPreview />
+            </main>
+            <Footer />
+        </>
+    )
 }

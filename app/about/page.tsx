@@ -1,390 +1,381 @@
-import type { Metadata } from "next"
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import {
-  Target,
-  Eye,
-  Handshake,
-  Globe2,
-  ShieldCheck,
-  Leaf,
-  Award,
-  Users,
-  TrendingUp,
-  ArrowRight,
-  Anchor,
-  Ship,
-  Factory,
-  Truck,
-} from "lucide-react"
+import { Leaf, Handshake, Award, ArrowRight, Anchor, Globe2 } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "À propos | TAFC - The Tunisian Algerian Fish Company",
-  description:
-    "Découvrez TAFC, le partenariat stratégique entre la Tunisie et l'Algérie pour des produits de la mer de haute qualité. Notre histoire, notre mission et notre vision.",
+// --- CONTENT DATA ---
+const presentation = {
+  title: "Présentation",
+  text: "La Société Tunisienne Algérienne des Poissons est spécialisée dans la pêche, la transformation et la commercialisation des produits de la mer, issus de la Méditerranée."
 }
 
-const values = [
-  {
-    icon: ShieldCheck,
-    title: "Qualité garantie",
-    description: "Normes internationales strictes, contrôles rigoureux et traçabilité complète de la mer à la table.",
-  },
-  {
-    icon: Leaf,
-    title: "Durabilité",
-    description:
-      "Respect des ressources marines, pêche responsable et engagement pour la préservation de l'écosystème.",
-  },
-  {
-    icon: Globe2,
-    title: "Export international",
-    description: "Certification export, documentation complète et logistique adaptée aux marchés internationaux.",
-  },
-  {
-    icon: Users,
-    title: "Partenariat B2B",
-    description: "Accompagnement personnalisé, flexibilité et solutions sur mesure pour chaque client professionnel.",
-  },
-]
+const mission = {
+  title: "Mission",
+  text: "Fournir des produits de la mer frais et surgelés, de manière durable, en valorisant les ressources marines communes entre la Tunisie et l’Algérie."
+}
 
-const stats = [
-  { value: "15+", label: "Années d'expertise" },
-  { value: "500+", label: "Clients B2B" },
-  { value: "12", label: "Pays exportés" },
-  { value: "24/7", label: "Chaîne du froid" },
-]
+const advantage = {
+  title: "Avantage concurrentiel",
+  text: "Une entreprise intégrée disposant d’une chaîne de production courte et maîtrisée, garantissant fraîcheur, traçabilité et contrôle qualité depuis la source."
+}
 
-const timeline = [
-  {
-    icon: Anchor,
-    title: "Pêche responsable",
-    description: "Flottes modernes équipées des dernières technologies pour une pêche sélective et durable.",
-  },
-  {
-    icon: Ship,
-    title: "Transport maritime",
-    description: "Acheminement rapide vers nos centres de traitement avec maintien de la chaîne du froid.",
-  },
-  {
-    icon: Factory,
-    title: "Transformation",
-    description: "Usines certifiées pour le tri, nettoyage, filetage, calibrage et conditionnement.",
-  },
-  {
-    icon: Truck,
-    title: "Distribution",
-    description: "Logistique export complète avec camions frigorifiques et conteneurs réfrigérés.",
-  },
-]
+const slogan = "Les poissons de la Méditerranée, une saveur sans frontières."
+
+// --- ANIMATION VARIANTS ---
+const fadeInRight = {
+  hidden: { opacity: 0, x: -30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+}
+
+const fadeInLeft = {
+  hidden: { opacity: 0, x: 30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+}
+
+const heroTextVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+  }
+}
 
 export default function AboutPage() {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 150]);
+
   return (
     <>
       <Header />
-      <main className="pt-20 md:pt-24">
-        {/* Hero */}
-        <section className="relative py-16 md:py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-tafc-navy via-tafc-navy to-tafc-blue-medium" />
-          <div className="absolute inset-0 bg-[url('/ocean-waves-pattern.jpg')] opacity-5" />
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-tafc-blue-light/10 to-transparent" />
+      <main className="bg-white min-h-screen selection:bg-tafc-blue-light/20">
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <p className="text-xs text-tafc-blue-light uppercase tracking-wider font-semibold mb-4">À propos</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
-                Une alliance stratégique au service de l&apos;excellence
-              </h1>
-              <p className="text-xl text-white/80 leading-relaxed mb-8">
-                TAFC réunit le meilleur de la Tunisie et de l&apos;Algérie pour offrir aux professionnels des produits
-                de la mer d&apos;exception. Qualité, traçabilité et durabilité sont au cœur de notre engagement.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-tafc-coral hover:bg-tafc-coral-dark text-white font-semibold px-8"
-                >
-                  <Link href="/contact">Nous contacter</Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 font-semibold px-8 bg-transparent"
-                >
-                  <Link href="/products">Voir nos produits</Link>
-                </Button>
-              </div>
-            </div>
+        {/* HERO SECTION - NEW */}
+        <section className="relative h-[85vh] md:h-[95vh] w-full overflow-hidden flex items-center justify-center">
+          {/* Background Image with Parallax & Zoom Effect */}
+          <motion.div
+            className="absolute inset-0 z-0"
+            initial={{ scale: 1.15 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 10, ease: "linear" }}
+            style={{ y: y1 }}
+          >
+            <Image
+              src="/fishing-boat-nets-mediterranean-sea-sunrise-profes.jpg"
+              alt="Mer Méditerranée"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+            {/* Cinematic Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-tafc-deep-navy/30 via-transparent to-tafc-deep-navy/90" />
+            <div className="absolute inset-0 bg-black/30" />
+          </motion.div>
+
+          {/* Hero Content */}
+          <div className="relative z-10 container mx-auto px-6 lg:px-12 text-center text-white mt-16 md:mt-0">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: { transition: { staggerChildren: 0.15 } }
+              }}
+            >
+              <motion.h1 variants={heroTextVariant} className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-6 md:mb-8 leading-tight">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/70">
+                  La Qualité
+                </span>
+                <span className="font-serif italic font-light text-tafc-blue-light">
+                  Sans Frontières
+                </span>
+              </motion.h1>
+
+              <motion.p variants={heroTextVariant} className="max-w-2xl mx-auto text-base md:text-xl text-gray-200 font-light leading-relaxed mb-8 md:mb-10 px-4">
+                Société Tunisienne Algérienne des Poissons.<br />
+                <span className="opacity-80 text-sm md:text-lg">{slogan}</span>
+              </motion.p>
+            </motion.div>
           </div>
         </section>
 
-        {/* Stats */}
-        <section className="py-12 bg-white border-b border-tafc-border">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-tafc-blue-medium mb-2">{stat.value}</div>
-                  <div className="text-sm text-tafc-text-secondary">{stat.label}</div>
+
+        {/* REST OF CONTENT */}
+        <div className="pt-16 md:pt-32 pb-20 bg-white space-y-20 md:space-y-32">
+
+          {/* SECTION 1: PRESENTATION (Editorial Left-Right) */}
+          <section className="container mx-auto px-6 lg:px-12">
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-32 items-center">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-10%" }}
+                variants={fadeInRight}
+                className="flex-1 relative z-10 w-full"
+              >
+                <div className="inline-block px-3 py-1 mb-6 border border-tafc-blue-medium/30 rounded-full text-tafc-blue-medium text-xs font-bold uppercase tracking-widest">
+                  Notre Identité
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Mission & Vision */}
-        <section className="py-16 md:py-24 bg-tafc-bg-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
-              <div>
-                <p className="text-xs text-tafc-blue-medium uppercase tracking-wider font-semibold mb-3">
-                  Notre histoire
-                </p>
-                <h2 className="text-3xl md:text-4xl font-bold text-tafc-text-primary mb-6 text-balance">
-                  Le partenariat Tunisie-Algérie pour l&apos;excellence maritime
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-tafc-navy mb-8 leading-[1.1]">
+                  {presentation.title}
                 </h2>
-                <p className="text-tafc-text-secondary leading-relaxed mb-4">
-                  Née de la volonté de créer une synergie entre deux nations méditerranéennes aux traditions maritimes
-                  ancestrales, TAFC s&apos;est imposée comme un acteur majeur de l&apos;industrie des produits de la mer
-                  en Afrique du Nord.
+                <div className="w-16 md:w-20 h-1.5 bg-tafc-coral mb-8" />
+                <p className="text-lg md:text-2xl text-tafc-text-primary font-light leading-relaxed">
+                  {presentation.text}
                 </p>
-                <p className="text-tafc-text-secondary leading-relaxed mb-4">
-                  Notre partenariat unique nous permet d&apos;accéder aux meilleures zones de pêche de la Méditerranée
-                  et de l&apos;Atlantique, tout en mutualisant nos expertises en transformation et en logistique.
-                </p>
-                <p className="text-tafc-text-secondary leading-relaxed">
-                  Aujourd&apos;hui, nous servons des centaines de clients professionnels à travers le monde, des
-                  restaurants gastronomiques aux grands distributeurs, en passant par les hôtels de luxe et les
-                  traiteurs événementiels.
-                </p>
-              </div>
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-tafc-blue-light/20 to-tafc-blue-medium/10 rounded-3xl blur-2xl" />
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <div className="flex items-center gap-2 text-tafc-text-secondary text-sm font-medium uppercase tracking-wider">
+                    <Anchor className="w-4 h-4 text-tafc-blue-medium" /> Pêche
+                  </div>
+                  <div className="flex items-center gap-2 text-tafc-text-secondary text-sm font-medium uppercase tracking-wider">
+                    <Globe2 className="w-4 h-4 text-tafc-blue-medium" /> Export
+                  </div>
+                </div>
+              </motion.div>
+
+              <div className="flex-1 w-full relative">
+                <div className="relative aspect-[3/4] w-full max-w-sm md:max-w-md mx-auto lg:ml-auto lg:rotate-3 shadow-2xl rounded-sm overflow-hidden group">
                   <Image
                     src="/mediterranean-fishing-fleet-boats-harbor-tunisia.jpg"
-                    alt="Flotte de pêche TAFC en Méditerranée"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
+                    alt="Flotte de pêche TAFC"
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
+                  <div className="absolute inset-0 bg-tafc-navy/10 group-hover:bg-transparent transition-colors duration-500" />
                 </div>
               </div>
             </div>
+          </section>
 
-            {/* Vision & Mission Cards */}
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="bg-white border-tafc-border rounded-2xl">
-                <CardContent className="p-6">
-                  <div className="w-14 h-14 rounded-2xl bg-tafc-blue-light/10 flex items-center justify-center mb-4">
-                    <Eye className="w-7 h-7 text-tafc-blue-medium" />
-                  </div>
-                  <h3 className="text-xl font-bold text-tafc-text-primary mb-3">Notre vision</h3>
-                  <p className="text-tafc-text-secondary leading-relaxed">
-                    Devenir la référence internationale des produits de la mer méditerranéens, reconnus pour notre
-                    qualité exceptionnelle et notre engagement durable.
+          {/* SECTION 2: MISSION & AVANTAGE (Editorial Right-Left) */}
+          <section className="container mx-auto px-6 lg:px-12">
+            <div className="flex flex-col lg:flex-row-reverse gap-12 lg:gap-32 items-center">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-10%" }}
+                variants={fadeInLeft}
+                className="flex-1 relative z-10 w-full"
+              >
+                <div className="mb-12">
+                  <h2 className="text-2xl md:text-4xl font-bold text-tafc-navy mb-4 md:mb-6">
+                    {mission.title}
+                  </h2>
+                  <p className="text-lg text-tafc-text-secondary leading-relaxed border-l-4 border-tafc-blue-light pl-6">
+                    {mission.text}
                   </p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white border-tafc-border rounded-2xl">
-                <CardContent className="p-6">
-                  <div className="w-14 h-14 rounded-2xl bg-tafc-blue-light/10 flex items-center justify-center mb-4">
-                    <Target className="w-7 h-7 text-tafc-blue-medium" />
-                  </div>
-                  <h3 className="text-xl font-bold text-tafc-text-primary mb-3">Notre mission</h3>
-                  <p className="text-tafc-text-secondary leading-relaxed">
-                    Fournir aux professionnels des produits de la mer sûrs, tracés et de haute qualité, tout en
-                    préservant les ressources marines pour les générations futures.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white border-tafc-border rounded-2xl">
-                <CardContent className="p-6">
-                  <div className="w-14 h-14 rounded-2xl bg-tafc-blue-light/10 flex items-center justify-center mb-4">
-                    <Handshake className="w-7 h-7 text-tafc-blue-medium" />
-                  </div>
-                  <h3 className="text-xl font-bold text-tafc-text-primary mb-3">Notre engagement</h3>
-                  <p className="text-tafc-text-secondary leading-relaxed">
-                    Un accompagnement personnalisé pour chaque client, avec flexibilité, réactivité et solutions sur
-                    mesure adaptées à vos besoins spécifiques.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Values */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <p className="text-xs text-tafc-blue-medium uppercase tracking-wider font-semibold mb-3">Nos valeurs</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-tafc-text-primary mb-4">
-                Les piliers de notre excellence
-              </h2>
-              <p className="text-tafc-text-secondary max-w-2xl mx-auto">
-                Chaque jour, nous nous engageons à respecter ces valeurs fondamentales qui guident toutes nos actions.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value, index) => (
-                <Card
-                  key={index}
-                  className="bg-tafc-bg-light border-tafc-border hover:border-tafc-blue-light/30 hover:shadow-lg transition-all duration-300 rounded-2xl"
-                >
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 rounded-2xl bg-tafc-blue-light/10 flex items-center justify-center mx-auto mb-4">
-                      <value.icon className="w-8 h-8 text-tafc-blue-medium" />
-                    </div>
-                    <h3 className="font-semibold text-tafc-text-primary text-lg mb-2">{value.title}</h3>
-                    <p className="text-sm text-tafc-text-secondary leading-relaxed">{value.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Process Timeline */}
-        <section className="py-16 md:py-24 bg-tafc-navy relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tafc-blue-light via-tafc-blue-medium to-tafc-blue-light opacity-50" />
-          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-tafc-blue-light/10 blur-3xl" />
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <p className="text-xs text-tafc-blue-light uppercase tracking-wider font-semibold mb-3">
-                Notre processus
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">De la mer à votre établissement</h2>
-              <p className="text-white/70 max-w-2xl mx-auto">
-                Une chaîne de valeur maîtrisée pour garantir la qualité et la fraîcheur de chaque produit.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {timeline.map((step, index) => (
-                <div key={index} className="relative">
-                  {index < timeline.length - 1 && (
-                    <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-white/20 to-transparent z-0" />
-                  )}
-                  <div className="glass-navy rounded-2xl p-6 h-full relative z-10">
-                    <div className="w-14 h-14 rounded-2xl bg-tafc-blue-light/20 flex items-center justify-center mb-4">
-                      <step.icon className="w-7 h-7 text-tafc-blue-light" />
-                    </div>
-                    <div className="text-xs text-tafc-blue-light/60 uppercase tracking-wider mb-2">
-                      Étape {index + 1}
-                    </div>
-                    <h3 className="font-semibold text-white text-lg mb-2">{step.title}</h3>
-                    <p className="text-sm text-white/70 leading-relaxed">{step.description}</p>
-                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* Certifications */}
-        <section className="py-16 md:py-24 bg-tafc-bg-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-xs text-tafc-blue-medium uppercase tracking-wider font-semibold mb-3">
-                  Certifications
-                </p>
-                <h2 className="text-3xl md:text-4xl font-bold text-tafc-text-primary mb-6">
-                  Des standards internationaux
-                </h2>
-                <p className="text-tafc-text-secondary leading-relaxed mb-6">
-                  TAFC est certifiée selon les normes les plus exigeantes de l&apos;industrie agroalimentaire. Nos
-                  installations et nos processus sont régulièrement audités pour garantir la conformité et la sécurité
-                  alimentaire.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <Award className="w-5 h-5 text-tafc-blue-medium mt-0.5 flex-shrink-0" />
-                    <div>
-                      <span className="font-semibold text-tafc-text-primary">HACCP</span>
-                      <p className="text-sm text-tafc-text-secondary">Système de gestion de la sécurité alimentaire</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Award className="w-5 h-5 text-tafc-blue-medium mt-0.5 flex-shrink-0" />
-                    <div>
-                      <span className="font-semibold text-tafc-text-primary">ISO 22000</span>
-                      <p className="text-sm text-tafc-text-secondary">
-                        Management de la sécurité des denrées alimentaires
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <TrendingUp className="w-5 h-5 text-tafc-blue-medium mt-0.5 flex-shrink-0" />
-                    <div>
-                      <span className="font-semibold text-tafc-text-primary">Export UE</span>
-                      <p className="text-sm text-tafc-text-secondary">
-                        Agrément pour l&apos;exportation vers l&apos;Union Européenne
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-tafc-blue-light/20 to-tafc-blue-medium/10 rounded-3xl blur-2xl" />
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <div>
+                  <h2 className="text-2xl md:text-4xl font-bold text-tafc-navy mb-4 md:mb-6">
+                    {advantage.title}
+                  </h2>
+                  <p className="text-lg text-tafc-text-secondary leading-relaxed">
+                    {advantage.text}
+                  </p>
+                </div>
+              </motion.div>
+
+              <div className="flex-1 w-full relative">
+                <div className="relative aspect-square w-full max-w-sm md:max-w-md mx-auto lg:mr-auto lg:-rotate-2 shadow-2xl rounded-sm overflow-hidden group">
                   <Image
                     src="/modern-seafood-processing-facility-quality-control.jpg"
-                    alt="Centre de transformation TAFC certifié"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
+                    alt="Contrôle qualité TAFC"
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
+                </div>
+                <div className="absolute -bottom-6 -left-6 bg-white p-6 shadow-xl max-w-xs hidden lg:block z-20 border border-t-0 border-l-0 border-tafc-border">
+                  <p className="font-serif italic text-tafc-navy text-lg text-center">
+                    "Fraîcheur, traçabilité et contrôle qualité depuis la source."
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* CTA */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-tafc-text-primary mb-4">
-              Prêt à découvrir nos produits ?
-            </h2>
-            <p className="text-tafc-text-secondary text-lg mb-8 max-w-2xl mx-auto">
-              Explorez notre catalogue complet ou contactez notre équipe pour discuter de vos besoins spécifiques.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-tafc-coral hover:bg-tafc-coral-dark text-white font-semibold px-8 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+          {/* SECTION 3: VALEURS (Bespoke "Expanding Gallery" Interaction) */}
+          <section className="py-24 md:py-32 bg-[#050A14] overflow-hidden">
+            <div className="container mx-auto px-6 lg:px-12 mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="flex flex-col md:flex-row justify-between items-end gap-6"
               >
-                <Link href="/products">
-                  Voir le catalogue
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-tafc-blue-medium text-tafc-blue-medium hover:bg-tafc-blue-light/10 font-semibold px-8 bg-transparent"
-              >
-                <Link href="/contact">Nous contacter</Link>
-              </Button>
+                <div>
+                  <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight">
+                    Nos Principes<br />Fondamentaux
+                  </h2>
+                </div>
+                <p className="text-white/50 max-w-sm text-sm md:text-base font-light leading-relaxed">
+                  Une approche intransigeante de la qualité, guidée par le respect de la nature et de nos partenaires.
+                </p>
+              </motion.div>
             </div>
-          </div>
-        </section>
+
+            {/* Expanding Cards Container */}
+            <div className="container mx-auto px-4 lg:px-12 h-[600px] flex flex-col md:flex-row gap-4">
+              <ExpandingCard
+                title="Excellence"
+                subtitle="Qualité Absolue"
+                desc="Du bateau à l'assiette, nous garantissons une traçabilité totale et une fraîcheur inégalée."
+                icon={Award}
+                image="/modern-seafood-processing-facility-quality-control.jpg"
+                index={0}
+              />
+              <ExpandingCard
+                title="Coopération"
+                subtitle="Confiance Mutuelle"
+                desc="Bâtir des ponts solides entre les nations et les hommes pour une croissance partagée."
+                icon={Handshake}
+                image="/mediterranean-fishing-fleet-boats-harbor-tunisia.jpg"
+                index={1}
+              />
+              <ExpandingCard
+                title="Responsabilité"
+                subtitle="Engagement Nature"
+                desc="Préserver la richesse de la Méditerranée pour les générations futures est notre devoir."
+                icon={Leaf}
+                image="/fishing-boat-nets-mediterranean-sea-sunrise-profes.jpg"
+                index={2}
+              />
+            </div>
+          </section>
+
+          {/* SECTION 4: VISION (Cinematic Typographic Manifesto) */}
+          <section className="relative min-h-[90vh] flex flex-col items-start justify-center overflow-hidden bg-white px-6 md:px-12 py-24">
+            {/* Parallax Background Text */}
+            <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 overflow-hidden pointer-events-none opacity-[0.03]">
+              <h2 className="text-[20vw] font-black text-tafc-navy leading-none whitespace-nowrap">
+                VISION 2030 VISION
+              </h2>
+            </div>
+
+            <div className="container mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="inline-block py-2 px-4 border border-tafc-navy rounded-full text-tafc-navy font-bold uppercase text-xs tracking-widest mb-8 hover:bg-tafc-navy hover:text-white transition-colors duration-300">
+                  Vision & Ambition
+                </span>
+                <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-tafc-navy leading-[0.9] tracking-tighter mb-10">
+                  Devenir la<br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-tafc-blue-medium to-tafc-coral">Référence</span><br />
+                  Absolue.
+                </h2>
+                <div className="h-[2px] w-32 bg-tafc-navy mb-10" />
+                <p className="text-xl md:text-2xl text-tafc-text-primary font-light leading-relaxed max-w-xl">
+                  "{slogan}"
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="relative group"
+              >
+                {/* Abstract Composition */}
+                <div className="relative z-10 bg-tafc-deep-navy p-12 md:p-16 rounded-[2rem] text-white shadow-2xl overflow-hidden min-h-[500px] flex flex-col justify-between">
+                  {/* Gradient Orb */}
+                  <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-tafc-blue-light/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2" />
+
+                  <div className="relative z-10">
+                    <Globe2 className="w-16 h-16 text-tafc-blue-light mb-8" />
+                    <h3 className="text-3xl font-bold mb-6">Un Pont Entre Deux Rives</h3>
+                    <p className="text-white/60 text-lg leading-relaxed">
+                      Nous unissons le savoir-faire tunisien et la richesse algérienne pour offrir le meilleur de la Méditerranée au marché mondial.
+                    </p>
+                  </div>
+
+                  <div className="relative z-10 pt-12">
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <Button asChild size="lg" className="bg-white text-tafc-navy hover:bg-tafc-blue-light hover:text-white rounded-full px-8 h-14 text-lg font-bold transition-all duration-300 shadow-xl shadow-white/5">
+                        <Link href="/contact">Contactez-nous</Link>
+                      </Button>
+                      <Button asChild size="lg" variant="ghost" className="text-white border border-white/20 hover:bg-white/10 rounded-full px-8 h-14 text-lg">
+                        <Link href="/products">Explorer le Catalogue</Link>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Decorative Element Behind */}
+                <div className="absolute -bottom-8 -right-8 w-full h-full border border-tafc-navy/10 rounded-[2rem] -z-10" />
+              </motion.div>
+            </div>
+          </section>
+        </div>
       </main>
       <Footer />
     </>
+  )
+}
+
+// COMPONENT: Expanding Card (Values)
+function ExpandingCard({ title, subtitle, desc, icon: Icon, image, index }: { title: string, subtitle: string, desc: string, icon: any, image: string, index: number }) {
+  return (
+    <motion.div
+      layout
+      className="relative group h-[400px] md:h-full rounded-3xl overflow-hidden cursor-pointer md:flex-1 md:hover:flex-[2.5] transition-[flex] duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] isolate"
+    >
+      {/* Background Image (Reveals on Hover/Active) */}
+      <Image
+        src={image}
+        alt={title}
+        fill
+        className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-40 group-hover:opacity-60"
+      />
+
+      {/* Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700" />
+
+      {/* Content Container */}
+      <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
+        {/* Icon & Index */}
+        <div className="absolute top-8 left-8 md:top-10 md:left-10 flex items-center gap-4">
+          <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md bg-white/5 group-hover:bg-tafc-coral group-hover:border-tafc-coral transition-all duration-500">
+            <Icon className="w-5 h-5 text-white" />
+          </div>
+          <span className="text-white/40 font-mono text-sm tracking-widest uppercase">0{index + 1}</span>
+        </div>
+
+        <motion.div layout="position" className="relative z-10">
+          <span className="text-tafc-coral uppercase tracking-widest text-xs font-bold mb-2 block opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100 transform translate-y-4 md:group-hover:translate-y-0">
+            {subtitle}
+          </span>
+          <h3 className="text-3xl md:text-5xl font-black text-white mb-2 md:mb-4 tracking-tight">
+            {title}
+          </h3>
+          <p className="text-white/70 text-base md:text-lg font-light leading-relaxed max-w-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 delay-200 transform translate-y-4 md:group-hover:translate-y-0 h-auto md:h-0 md:group-hover:h-auto overflow-hidden">
+            {desc}
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Interactive Border */}
+      <div className="absolute inset-0 border-2 border-white/10 rounded-3xl group-hover:border-white/30 transition-colors duration-500 pointer-events-none" />
+    </motion.div>
   )
 }

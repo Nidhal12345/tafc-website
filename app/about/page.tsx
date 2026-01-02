@@ -50,7 +50,7 @@ const heroTextVariant = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+    transition: { duration: 0.8, ease: "easeOut" }
   }
 }
 
@@ -273,7 +273,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 1, ease: "easeOut" }}
               >
                 <span className="inline-block py-2 px-4 border border-tafc-navy rounded-full text-tafc-navy font-bold uppercase text-xs tracking-widest mb-8 hover:bg-tafc-navy hover:text-white transition-colors duration-300">
                   Vision & Ambition

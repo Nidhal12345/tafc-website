@@ -67,7 +67,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: "easeOut" as const }}
             className="order-2 lg:order-1 z-10"
           >
             {/* Badge */}
@@ -154,7 +154,7 @@ export function Hero() {
               key={selectedProduct.name}
               initial={{ opacity: 0, scale: 0.9, y: 25 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.5, ease: "easeOut" as const }}
               className="hidden md:block absolute inset-x-[12%] lg:inset-x-[15%] top-[5%] bottom-[10%] lg:bottom-[6%] rounded-3xl bg-[#101f33] border border-white/10 overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.6)]"
             >
               <div className="relative w-full h-full">

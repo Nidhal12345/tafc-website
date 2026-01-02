@@ -44,7 +44,7 @@ export function TargetClients() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: "easeOut" as const }}
           className="flex max-w-3xl flex-col items-center text-center"
         >
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
@@ -84,7 +84,7 @@ export function TargetClients() {
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" as const }}
           className="mt-10 w-full sm:mt-12"
         >
           <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[32px] border border-slate-200 bg-slate-900/90 shadow-xl shadow-slate-900/10">

@@ -273,7 +273,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: "easeOut" as const }}
               >
                 <span className="inline-block py-2 px-4 border border-tafc-navy rounded-full text-tafc-navy font-bold uppercase text-xs tracking-widest mb-8 hover:bg-tafc-navy hover:text-white transition-colors duration-300">
                   Vision & Ambition

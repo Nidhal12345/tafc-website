@@ -1,10 +1,12 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useTranslations } from 'next-intl'
+import { Link } from "@/i18n/navigation"
 import { motion } from "framer-motion"
-import Link from "next/link"
 
 export function TargetClients() {
+  const t = useTranslations('targetClients')
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isVideoVisible, setIsVideoVisible] = useState(false)
 
@@ -48,18 +50,17 @@ export function TargetClients() {
           className="flex max-w-3xl flex-col items-center text-center"
         >
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
-            TUNISIAN · ALGERIAN SEAFOOD
+            {t('badge')}
           </p>
 
           <h1 className="font-serif text-[2.4rem] leading-[1.05] tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-[3.8rem]">
-            Sublimez vos cartes avec le{" "}
-            <span className="italic text-tafc-coral">meilleur</span>
-            <br /> de la Méditerranée.
+            {t('titlePart1')}{" "}
+            <span className="italic text-tafc-coral">{t('titleHighlight')}</span>
+            <br /> {t('titlePart2')}
           </h1>
 
           <p className="mt-4 max-w-xl text-sm text-slate-600 sm:text-base">
-            Des produits ultra-frais, sourcés avec exigence pour les restaurants, hôtels,
-            chefs et professionnels entre la Tunisie et l’Algérie.
+            {t('description')}
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
@@ -68,14 +69,14 @@ export function TargetClients() {
               href="/products"
               className="inline-flex items-center justify-center rounded-full bg-tafc-coral px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-tafc-coral-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tafc-coral focus-visible:ring-offset-2"
             >
-              Voir nos produits
+              {t('ctaPrimary')}
             </Link>
 
             <Link
-              href="#about"
+              href="/about"
               className="text-sm font-medium text-slate-800 underline-offset-4 hover:underline"
             >
-              Découvrir notre approche
+              {t('ctaSecondary')}
             </Link>
           </div>
         </motion.div>
@@ -100,7 +101,7 @@ export function TargetClients() {
               </div>
 
               <p className="hidden text-[11px] font-medium uppercase tracking-[0.2em] text-slate-200/70 sm:block">
-                FRESH • DAILY • PREMIUM
+                {t('videoBadge')}
               </p>
 
               <div className="h-2 w-8 rounded-full bg-slate-300/40" />

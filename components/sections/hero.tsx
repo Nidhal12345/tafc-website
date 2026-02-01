@@ -1,49 +1,49 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import Image from "next/image"
+import { useTranslations } from 'next-intl'
+import { Link } from "@/i18n/navigation"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const floatingProducts = [
-  {
-    name: "Loup de Mer",
-    subtitle: "Qualité premium",
-    badge: "Best-seller",
-    badgeColor: "bg-tafc-coral",
-    image: "/fresh-sea-bass-fish-on-ice.jpg",
-    size: "w-[130px] sm:w-[160px] md:w-[220px] lg:w-[240px]",
-    position: "top-0 left-[2%] sm:left-[5%] md:top-4 md:right-[10%] md:left-auto",
-    rotation: -6,
-    delay: 0,
-  },
-  {
-    name: "Dorade Royale",
-    subtitle: "Qualité premium",
-    badge: "Premium",
-    badgeColor: "bg-emerald-500",
-    image: "/fresh-sea-bream-dorade-fish-on-ice.jpg",
-    size: "w-[140px] sm:w-[170px] md:w-[240px] lg:w-[280px]",
-    position: "top-[35%] right-[2%] sm:right-[5%] md:top-[25%] md:right-[2%]",
-    rotation: 6,
-    delay: 0.15,
-  },
-  {
-    name: "Crevettes Géantes",
-    subtitle: "Qualité premium",
-    badge: "Sélection du jour",
-    badgeColor: "bg-tafc-coral",
-    image: "/giant-prawns-shrimp-on-ice-premium.jpg",
-    size: "w-[130px] sm:w-[160px] md:w-[220px] lg:w-[260px]",
-    position: "bottom-0 left-[15%] sm:left-[20%] md:bottom-[15%] md:right-[5%] md:left-auto",
-    rotation: 5,
-    delay: 0.3,
-  },
-]
-
 export function Hero() {
+  const t = useTranslations('hero')
+
+  const floatingProducts = [
+    {
+      nameKey: "seaBass",
+      productCode: "TAFC/LOUP-007",
+      badgeColor: "bg-tafc-coral",
+      image: "/fresh-sea-bass-fish-on-ice.jpg",
+      size: "w-[130px] sm:w-[160px] md:w-[220px] lg:w-[240px]",
+      position: "top-0 left-[2%] sm:left-[5%] md:top-4 md:right-[10%] md:left-auto",
+      rotation: -6,
+      delay: 0,
+    },
+    {
+      nameKey: "seaBream",
+      productCode: "TAFC/DORADE-005",
+      badgeColor: "bg-emerald-500",
+      image: "/fresh-sea-bream-dorade-fish-on-ice.jpg",
+      size: "w-[140px] sm:w-[170px] md:w-[240px] lg:w-[280px]",
+      position: "top-[35%] right-[2%] sm:right-[5%] md:top-[25%] md:right-[2%]",
+      rotation: 6,
+      delay: 0.15,
+    },
+    {
+      nameKey: "prawns",
+      productCode: "TAFC/CREV-032",
+      badgeColor: "bg-tafc-coral",
+      image: "/giant-prawns-shrimp-on-ice-premium.jpg",
+      size: "w-[130px] sm:w-[160px] md:w-[220px] lg:w-[260px]",
+      position: "bottom-0 left-[15%] sm:left-[20%] md:bottom-[15%] md:right-[5%] md:left-auto",
+      rotation: 5,
+      delay: 0.3,
+    },
+  ]
+
   // NEW: selected product for the big photo
   const [selectedProduct, setSelectedProduct] = useState(floatingProducts[0])
 
@@ -79,7 +79,7 @@ export function Hero() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
               <span className="text-[10px] sm:text-sm font-semibold text-teal-400 uppercase tracking-wider sm:tracking-widest">
-                TAFC — Mediterranean Seafood
+                {t('badge')}
               </span>
             </motion.div>
 
@@ -90,11 +90,10 @@ export function Hero() {
               transition={{ delay: 0.3, duration: 0.7 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-6 tracking-tight"
             >
-              Des produits de la
+              {t('titleLine1')}
               <br />
-              mer{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-400 to-cyan-400">
-                d&apos;exception
+                {t('titleHighlight')}
               </span>
             </motion.h1>
 
@@ -105,7 +104,7 @@ export function Hero() {
               transition={{ delay: 0.45, duration: 0.6 }}
               className="text-lg sm:text-xl md:text-2xl text-teal-400 font-medium mb-4 sm:mb-6"
             >
-              entre la Tunisie et l&apos;Algérie
+              {t('subtitle')}
             </motion.p>
 
             {/* Description */}
@@ -115,8 +114,7 @@ export function Hero() {
               transition={{ delay: 0.55, duration: 0.6 }}
               className="text-base sm:text-lg md:text-xl text-gray-300/90 mb-6 sm:mb-10 leading-relaxed max-w-xl"
             >
-              The Tunisian Algerian Fish Company accompagne les restaurants, hôtels, traiteurs et commerces spécialisés
-              avec une sélection rigoureuse de poissons et fruits de mer frais, tracés et prêts à être cuisinés.
+              {t('description')}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -132,7 +130,7 @@ export function Hero() {
                 className="bg-tafc-coral hover:bg-tafc-coral-dark text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-tafc-coral/30 group"
               >
                 <Link href="/products">
-                  Découvrir nos produits
+                  {t('ctaPrimary')}
                   <ArrowRight className="ml-2 w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -142,7 +140,7 @@ export function Hero() {
                 variant="outline"
                 className="border-teal-400/40 text-teal-400 hover:bg-teal-400/10 hover:border-teal-400/60 font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base rounded-full bg-transparent transition-all duration-300"
               >
-                <Link href="/about">En savoir plus sur nous</Link>
+                <Link href="/about">{t('ctaSecondary')}</Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -151,7 +149,7 @@ export function Hero() {
           <div className="hidden md:block order-1 lg:order-2 relative md:h-[500px] lg:h-[600px]">
             {/* BIG FEATURED PHOTO (center area) - Hidden on mobile, visible on md+ */}
             <motion.div
-              key={selectedProduct.name}
+              key={selectedProduct.nameKey}
               initial={{ opacity: 0, scale: 0.9, y: 25 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" as const }}
@@ -160,7 +158,7 @@ export function Hero() {
               <div className="relative w-full h-full">
                 <Image
                   src={selectedProduct.image || "/placeholder.svg"}
-                  alt={selectedProduct.name}
+                  alt={t(`products.${selectedProduct.nameKey}.name`)}
                   fill
                   className="object-contain"
                   priority
@@ -168,12 +166,15 @@ export function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0b1a2b] via-transparent to-transparent opacity-70" />
                 <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1">
                   <p className="text-xs uppercase tracking-[0.2em] text-teal-300/70">
-                    Sélection mise en avant
+                    {t('featuredSelection')}
                   </p>
                   <h3 className="text-xl lg:text-2xl font-semibold text-white">
-                    {selectedProduct.name}
+                    {t(`products.${selectedProduct.nameKey}.name`)}
                   </h3>
-                  <p className="text-sm text-gray-300/80">{selectedProduct.subtitle}</p>
+                  <p className="text-sm text-gray-300/80">{t(`products.${selectedProduct.nameKey}.subtitle`)}</p>
+                  <p className="text-xs font-mono text-cyan-400/80 mt-1">
+                    {selectedProduct.productCode}
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -181,7 +182,7 @@ export function Hero() {
             {/* Small floating cards (click to change big photo) */}
             {floatingProducts.map((product, index) => (
               <motion.div
-                key={product.name}
+                key={product.nameKey}
                 initial={{ opacity: 0, y: 60, rotate: 0, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, rotate: product.rotation, scale: 1 }}
                 transition={{
@@ -204,7 +205,7 @@ export function Hero() {
                     <span
                       className={`${product.badgeColor} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg`}
                     >
-                      {product.badge}
+                      {t(`products.${product.nameKey}.badge`)}
                     </span>
                   </div>
 
@@ -212,7 +213,7 @@ export function Hero() {
                   <div className="relative h-36 md:h-44 overflow-hidden">
                     <Image
                       src={product.image || "/placeholder.svg"}
-                      alt={product.name}
+                      alt={t(`products.${product.nameKey}.name`)}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                     />
@@ -221,8 +222,8 @@ export function Hero() {
 
                   {/* Content */}
                   <div className="p-4 bg-gradient-to-b from-[#12253a] to-[#0d1c2d]">
-                    <h3 className="font-bold text-white text-lg tracking-tight">{product.name}</h3>
-                    <p className="text-gray-400 text-sm mt-0.5">{product.subtitle}</p>
+                    <h3 className="font-bold text-white text-lg tracking-tight">{t(`products.${product.nameKey}.name`)}</h3>
+                    <p className="text-gray-400 text-sm mt-0.5">{t(`products.${product.nameKey}.subtitle`)}</p>
                   </div>
                 </motion.button>
               </motion.div>

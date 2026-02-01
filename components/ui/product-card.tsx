@@ -7,10 +7,11 @@ import { MapPin, Snowflake, Box, ArrowRight, FileText } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton"
-import type { Product } from "@/lib/products-data"
+import type { Product, TranslatedProduct } from "@/lib/products-data"
+import { useTranslations } from "next-intl"
 
 interface ProductCardProps {
-  product: Product
+  product: Product | TranslatedProduct
   index?: number
 }
 
@@ -18,8 +19,11 @@ const whatsappNumber = "+21698621128"
 
 
 export function ProductCard({ product, index = 0 }: ProductCardProps) {
+  const t = useTranslations("productsData.ui")
+  const tNav = useTranslations("nav")
+
   const whatsappMessage = encodeURIComponent(
-    `Bonjour TAFC, je souhaite demander un devis pour : ${product.name} (Réf: ${product.id}).`
+    `${tNav("whatsappMessage")} - ${product.name} (Réf: ${product.id})`
   )
 
   return (
@@ -102,7 +106,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
               className="w-full border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-[#042635] hover:border-[#042635]/20 font-medium"
             >
               <Link href={`/products/${product.slug}`}>
-                Voir produit
+                {t("viewProduct")}
               </Link>
             </Button>
 
@@ -118,7 +122,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
                 className="flex items-center justify-center gap-2"
               >
                 <FileText className="w-3.5 h-3.5" />
-                <span>Devis</span>
+                <span>{t("requestQuote")}</span>
               </a>
             </Button>
           </div>
@@ -127,3 +131,4 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
     </motion.div>
   )
 }
+

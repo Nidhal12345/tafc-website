@@ -1,37 +1,43 @@
 "use client"
 
-import Link from "next/link"
+import { useTranslations } from 'next-intl'
+import { Link } from "@/i18n/navigation"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { MapPin, Phone, Mail, Clock, Fish, Anchor, ArrowUpRight } from "lucide-react"
-
-const navLinks = [
-    { href: "/", label: "Accueil" },
-    { href: "/products", label: "Produits" },
-    { href: "/about", label: "À propos" },
-    { href: "/contact", label: "Contact" },
-]
-
-const productCategories = [
-    { href: "/products?category=crevettes-crustaces", label: "Crevettes & Crustacés" },
-    { href: "/products?category=poissons-mediterranee", label: "Poissons Méditerranée" },
-    { href: "/products?category=calamars-poulpes", label: "Calamars & Poulpes" },
-    { href: "/products?category=saumon-thon", label: "Saumon & Thon" },
-]
+import { MapPin, Phone, Mail, Clock, Fish, ArrowUpRight } from "lucide-react"
 
 const whatsappNumber = "+21698621128"
 
 export function Footer() {
+    const t = useTranslations('footer')
+    const tNav = useTranslations('nav')
     const currentYear = new Date().getFullYear()
 
-    return (
-        <footer className="relative bg-[#042635] text-white overflow-hidden">
-            {/* Decorative Wave Pattern */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#22C5C5] via-[#042635] to-[#22C5C5]" />
+    const navLinks = [
+        { href: "/" as const, labelKey: "home" },
+        { href: "/products" as const, labelKey: "products" },
+        { href: "/about" as const, labelKey: "about" },
+        { href: "/contact" as const, labelKey: "contact" },
+    ]
 
-            {/* Main Footer Content */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+    const productCategories = [
+        { href: "/products?category=crevettes-crustaces" as const, labelKey: "shrimp" },
+        { href: "/products?category=poissons-mediterranee" as const, labelKey: "mediterraneanFish" },
+        { href: "/products?category=calamars-poulpes" as const, labelKey: "squidOctopus" },
+        { href: "/products?category=saumon-thon" as const, labelKey: "salmonTuna" },
+    ]
+
+    return (
+        <footer className="relative text-white overflow-hidden min-h-[calc(100vh-80px)] flex flex-col">
+            {/* Main Footer Background - Solid Dark Navy */}
+            <div className="absolute inset-0 bg-[#042635]" aria-hidden="true" />
+
+            {/* Decorative Top Accent */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#22C5C5] via-[#042635] to-[#22C5C5] z-10" />
+
+            {/* Main Footer Content - Clean & Readable */}
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
 
                     {/* Brand Column */}
                     <motion.div
@@ -42,15 +48,12 @@ export function Footer() {
                         className="lg:col-span-1"
                     >
                         <Link href="/" className="flex items-center gap-3 group mb-6">
-                            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
                                 <Image
                                     src="/logo.png"
                                     width={40}
                                     height={40}
                                     alt="TAFC Logo"
-                                    className="rounded-lg"
                                 />
-                            </div>
                             <div className="flex flex-col leading-tight">
                                 <span className="font-sora font-extrabold text-xl uppercase tracking-tight">
                                     TAFC
@@ -61,7 +64,7 @@ export function Footer() {
                             </div>
                         </Link>
                         <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                            Fournisseur B2B de produits de la mer premium. Qualité, traçabilité et fraîcheur garanties pour les professionnels exigeants.
+                            {t('tagline')}
                         </p>
                         <div className="flex items-center gap-4">
                             <a
@@ -116,7 +119,7 @@ export function Footer() {
                     >
                         <h3 className="font-semibold text-white mb-6 flex items-center gap-2">
                             <span className="w-1 h-5 bg-[#22C5C5] rounded-full" />
-                            Navigation
+                            {t('navigation')}
                         </h3>
                         <ul className="space-y-3">
                             {navLinks.map((link) => (
@@ -126,7 +129,7 @@ export function Footer() {
                                         className="text-slate-400 hover:text-[#22C5C5] transition-colors text-sm flex items-center gap-2 group"
                                     >
                                         <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                        {link.label}
+                                        {tNav(link.labelKey)}
                                     </Link>
                                 </li>
                             ))}
@@ -142,7 +145,7 @@ export function Footer() {
                     >
                         <h3 className="font-semibold text-white mb-6 flex items-center gap-2">
                             <span className="w-1 h-5 bg-[#22C5C5] rounded-full" />
-                            Nos Produits
+                            {t('ourProducts')}
                         </h3>
                         <ul className="space-y-3">
                             {productCategories.map((category) => (
@@ -152,7 +155,7 @@ export function Footer() {
                                         className="text-slate-400 hover:text-[#22C5C5] transition-colors text-sm flex items-center gap-2 group"
                                     >
                                         <Fish className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
-                                        {category.label}
+                                        {t(`productCategories.${category.labelKey}`)}
                                     </Link>
                                 </li>
                             ))}
@@ -168,14 +171,14 @@ export function Footer() {
                     >
                         <h3 className="font-semibold text-white mb-6 flex items-center gap-2">
                             <span className="w-1 h-5 bg-[#22C5C5] rounded-full" />
-                            Contact
+                            {t('contact')}
                         </h3>
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-[#22C5C5] flex-shrink-0 mt-0.5" />
                                 <span className="text-slate-400 text-sm">
-                                    Tunisie & Algérie<br />
-                                    Méditerranée
+                                    {t('location.line1')}<br />
+                                    {t('location.line2')}
                                 </span>
                             </li>
                             <li className="flex items-center gap-3">
@@ -199,27 +202,52 @@ export function Footer() {
                             <li className="flex items-center gap-3">
                                 <Clock className="w-5 h-5 text-[#22C5C5] flex-shrink-0" />
                                 <span className="text-slate-400 text-sm">
-                                    Lun - Sam: 8h - 18h
+                                    {t('hours')}
                                 </span>
                             </li>
                         </ul>
                     </motion.div>
                 </div>
 
-                {/* Bottom Bar */}
+                {/* Bottom Bar - Copyright */}
                 <div className="mt-12 pt-8 border-t border-white/10">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         <p className="text-slate-500 text-sm text-center md:text-left">
-                            © {currentYear} TAFC - Tunisian Algerian Fish Company. Tous droits réservés.
+                            {t('copyright', { year: currentYear })}
                         </p>
-
                     </div>
                 </div>
             </div>
 
-            {/* Decorative Elements */}
-            <div className="absolute bottom-0 right-0 opacity-5 pointer-events-none">
-                <Anchor className="w-64 h-64 -mb-16 -mr-16" />
+            {/* Ocean Base Layer - Premium Maritime Visual Base */}
+            <div
+                className="relative w-full flex-grow min-h-28 sm:min-h-36 md:min-h-48"
+                aria-hidden="true"
+            >
+                {/* Ocean Texture Image - Full width, cropped vertically on mobile */}
+                <Image
+                    src="/footer.png"
+                    alt=""
+                    fill
+                    className="object-cover object-top"
+                    sizes="100vw"
+                    priority={false}
+                    quality={90}
+                />
+                {/* Smooth Gradient Fade - Dark navy → transparent (no hard edges) */}
+                <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                        background: `linear-gradient(
+                            to bottom,
+                            #042635 0%,
+                            rgba(4, 38, 53, 0.85) 20%,
+                            rgba(4, 38, 53, 0.5) 40%,
+                            rgba(4, 38, 53, 0.2) 60%,
+                            transparent 100%
+                        )`
+                    }}
+                />
             </div>
         </footer>
     )

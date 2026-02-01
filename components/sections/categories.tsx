@@ -1,11 +1,16 @@
-import Link from "next/link"
+"use client"
+
 import Image from "next/image"
+import { useTranslations } from 'next-intl'
+import { Link } from "@/i18n/navigation"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { categories } from "@/lib/categories"
-import { CategoriesMotion } from "./categories-motion"
+import { motion } from "framer-motion"
 
 export function Categories() {
+  const t = useTranslations('categories')
+
   return (
     <section className="py-16 sm:py-20 md:py-28 lg:py-32 bg-gradient-to-b from-[#0a1628] to-[#0d1f35] relative overflow-hidden">
       {/* Ice texture effect */}
@@ -20,23 +25,27 @@ export function Categories() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/5 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        {/* Header (animated in small client wrapper) */}
-        <CategoriesMotion>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
           <div className="text-center mb-10 sm:mb-12 md:mb-16">
             <span className="inline-block text-[10px] sm:text-xs text-cyan-400 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold mb-3 sm:mb-4 border border-cyan-400/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-cyan-400/5">
-              Nos gammes
+              {t('badge')}
             </span>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 text-balance px-2">
-              Des gammes structurées pour vos besoins
+              {t('title')}
             </h2>
 
             <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-2">
-              Notre offre couvre l&apos;ensemble des produits de la mer : crevettes, calamars, poulpes, mollusques,
-              poissons méditerranéens, saumon, thon, caviar et œufs de poisson.
+              {t('description')}
             </p>
           </div>
-        </CategoriesMotion>
+        </motion.div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -73,7 +82,7 @@ export function Categories() {
                   </h3>
                   <p className="text-gray-400 text-sm leading-relaxed mb-4">{category.description}</p>
                   <div className="flex items-center gap-2 text-cyan-400 text-sm font-medium">
-                    <span>Voir les produits</span>
+                    <span>{t('viewProducts')}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -95,7 +104,7 @@ export function Categories() {
             className="bg-tafc-coral hover:bg-tafc-coral-dark text-white font-semibold px-8 py-6 text-base rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-tafc-coral/30 group"
           >
             <Link href="/products">
-              Voir le catalogue complet
+              {t('viewFullCatalog')}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>

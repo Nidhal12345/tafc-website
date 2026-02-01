@@ -1,0 +1,680 @@
+{
+  "metadata": {
+    "locale": "en",
+    "direction": "ltr",
+    "name": "English"
+  },
+
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Menu",
+    "navigation": "Navigation",
+    "whatsappMessage": "Hello TAFC, I would like to learn more about your seafood products."
+  },
+
+  "hero": {
+    "badge": "TAFC — Mediterranean Seafood",
+    "titleLine1": "Exceptional seafood",
+    "titleHighlight": "products",
+    "subtitle": "between Tunisia and Algeria",
+    "description": "The Tunisian Algerian Fish Company partners with restaurants, hotels, caterers and specialty stores with a rigorous selection of fresh, traced and ready-to-cook fish and seafood.",
+    "ctaPrimary": "Discover our products",
+    "ctaSecondary": "Learn more about us",
+    "featuredSelection": "Featured selection",
+    "products": {
+      "seaBass": {
+        "name": "Sea Bass",
+        "subtitle": "Premium quality",
+        "badge": "Best-seller"
+      },
+      "seaBream": {
+        "name": "Royal Sea Bream",
+        "subtitle": "Premium quality",
+        "badge": "Premium"
+      },
+      "prawns": {
+        "name": "Giant Prawns",
+        "subtitle": "Premium quality",
+        "badge": "Today's selection"
+      }
+    }
+  },
+
+  "marquee": {
+    "items": {
+      "premiumQuality": "PREMIUM QUALITY",
+      "internationalExport": "INTERNATIONAL EXPORT",
+      "sustainableFishing": "SUSTAINABLE FISHING",
+      "guaranteedFreshness": "GUARANTEED FRESHNESS",
+      "fullTraceability": "FULL TRACEABILITY",
+      "certifiedProducts": "CERTIFIED PRODUCTS",
+      "fastDelivery": "FAST DELIVERY"
+    }
+  },
+
+  "about": {
+    "badge": "Who we are",
+    "titlePart1": "A strategic alliance between",
+    "tunisia": "Tunisia",
+    "and": "and",
+    "algeria": "Algeria",
+    "description1": "TAFC is a major player in fishing, processing and export of seafood in the Mediterranean. Our unique partnership between Tunisia and Algeria allows us to ensure a complete and diversified offer.",
+    "description2": "We work with modern fleets and certified packaging centers to guarantee food safety, traceability and sustainability of our marine resources.",
+    "imageAlt": {
+      "fleet": "TAFC Mediterranean fishing fleet",
+      "processing": "TAFC processing center",
+      "selection": "Fresh fish selection"
+    },
+    "modernFleets": "Our modern fleets",
+    "yearsExperience": "Years of experience",
+    "highlights": {
+      "partnership": "Strategic Tunisia-Algeria partnership",
+      "modernFleets": "Modern fleets and certified centers",
+      "traceability": "Complete traceability guaranteed",
+      "standards": "International standards respected"
+    },
+    "pillars": {
+      "vision": {
+        "title": "Vision",
+        "description": "To become an international reference in high-quality Mediterranean seafood products."
+      },
+      "mission": {
+        "title": "Mission",
+        "description": "To provide safe, traced products adapted to professional needs while respecting the marine environment."
+      },
+      "whyTafc": {
+        "title": "Why TAFC?",
+        "description": "Consistent quality, export volumes, flexibility and personalized B2B support."
+      }
+    }
+  },
+
+  "bestSellers": {
+    "badge": "Popular products",
+    "title": "Featured Best Sellers",
+    "description": "Top-performing products trusted by our international clients and distribution partners.",
+    "viewProduct": "View Product",
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide"
+  },
+
+  "categories": {
+    "badge": "Our ranges",
+    "title": "Structured ranges for your needs",
+    "description": "Our offer covers all seafood products: shrimp, squid, octopus, mollusks, Mediterranean fish, salmon, tuna, caviar and fish roe.",
+    "viewProducts": "View products",
+    "viewFullCatalog": "View full catalog"
+  },
+
+  "targetClients": {
+    "badge": "TUNISIAN · ALGERIAN SEAFOOD",
+    "titlePart1": "Elevate your menus with the",
+    "titleHighlight": "best",
+    "titlePart2": "of the Mediterranean.",
+    "description": "Ultra-fresh products, sourced with precision for restaurants, hotels, chefs and professionals between Tunisia and Algeria.",
+    "ctaPrimary": "View our products",
+    "ctaSecondary": "Discover our approach",
+    "videoBadge": "FRESH • DAILY • PREMIUM"
+  },
+
+  "catalog": {
+    "badge": "Our catalog",
+    "title": "A preview of our catalog",
+    "description": "Discover some of our flagship references before exploring all products.",
+    "viewAll": "View full catalog"
+  },
+
+  "contact": {
+    "badge": "Contact",
+    "title": "Let's discuss your seafood needs",
+    "description": "Tell us what type of establishment you are, your volumes, your delivery frequencies... Our team will help you define your supply.",
+    "cta": "Contact the team",
+    "location": "Based in Tunisia & Algeria",
+    "mapTitle": "TAFC Location - Tunisia & Algeria"
+  },
+
+  "footer": {
+    "tagline": "Premium B2B seafood supplier. Quality, traceability and freshness guaranteed for demanding professionals.",
+    "navigation": "Navigation",
+    "ourProducts": "Our Products",
+    "contact": "Contact",
+    "location": {
+      "line1": "Tunisia & Algeria",
+      "line2": "Mediterranean"
+    },
+    "hours": "Mon - Sat: 8am - 6pm",
+    "copyright": "© {year} TAFC - Tunisian Algerian Fish Company. All rights reserved.",
+    "productCategories": {
+      "shrimp": "Shrimp & Crustaceans",
+      "mediterraneanFish": "Mediterranean Fish",
+      "squidOctopus": "Squid & Octopus",
+      "salmonTuna": "Salmon & Tuna"
+    }
+  },
+
+  "products": {
+    "pageTitle": "Our Products",
+    "pageDescription": "Discover our selection of premium seafood products",
+    "filterByCategory": "Filter by category",
+    "allProducts": "All products",
+    "searchPlaceholder": "Search for a product...",
+    "noResults": "No products found",
+    "viewDetails": "View details",
+    "addToInquiry": "Add to inquiry",
+    "origin": "Origin",
+    "preparation": "Preparation",
+    "caliber": "Caliber",
+    "size": "Size"
+  },
+
+  "common": {
+    "learnMore": "Learn more",
+    "viewAll": "View all",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "open": "Open",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "whatsapp": "WhatsApp"
+  },
+
+  "seo": {
+    "title": "TAFC - The Tunisian Algerian Fish Company | Premium B2B Seafood Products",
+    "titleTemplate": "%s | TAFC - Seafood Products",
+    "description": "Premium B2B seafood supplier: Royal shrimp, octopus, squid, fresh and frozen Mediterranean fish. Certified exporter for HORECA professionals from Tunisia and Algeria.",
+    "ogTitle": "TAFC - Premium Seafood Excellence",
+    "ogDescription": "Your trusted partner for import-export of premium seafood from Tunisia and Algeria. Certified quality for professionals.",
+    "twitterDescription": "Export of fresh and frozen seafood products for the international market. Premium quality guaranteed."
+  },
+
+  "aboutPage": {
+    "hero": {
+      "titlePart1": "Quality",
+      "titlePart2": "Without Borders",
+      "slogan": "Mediterranean fish, a flavor without borders."
+    },
+    "presentation": {
+      "badge": "Our Identity",
+      "title": "Presentation",
+      "text": "The Tunisian Algerian Fish Company specializes in fishing, processing and marketing seafood products from the Mediterranean.",
+      "fishing": "FISHING",
+      "export": "EXPORT"
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "Provide fresh and frozen seafood sustainably, valuing the common marine resources between Tunisia and Algeria."
+    },
+    "advantage": {
+      "title": "Competitive Advantage",
+      "text": "An integrated company with a short and controlled production chain, guaranteeing freshness, traceability and quality control from the source."
+    },
+    "values": {
+      "title": "Our Core Principles",
+      "subtitle": "An uncompromising approach to quality, guided by respect for nature and our partners.",
+      "cards": {
+        "excellence": {
+          "title": "Excellence",
+          "subtitle": "ABSOLUTE QUALITY",
+          "desc": "From boat to plate, we guarantee total traceability and unmatched freshness."
+        },
+        "cooperation": {
+          "title": "Cooperation",
+          "subtitle": "MUTUAL TRUST",
+          "desc": "Building solid bridges between nations and people for shared growth."
+        },
+        "responsibility": {
+          "title": "Responsibility",
+          "subtitle": "NATURE COMMITMENT",
+          "desc": "Preserving the richness of the Mediterranean for future generations is our duty."
+        }
+      }
+    },
+    "vision": {
+      "bgText": "VISION 2030 VISION",
+      "badge": "VISION & AMBITION",
+      "titlePart1": "Become the",
+      "titleHighlight": "Absolute",
+      "titlePart2": "Reference.",
+      "card": {
+        "title": "A Bridge Between Two Shores",
+        "description": "We unite Tunisian know-how and Algerian richness to offer the best of the Mediterranean to the global market.",
+        "ctaContact": "Contact Us",
+        "ctaCatalog": "Explore Catalog"
+      }
+    }
+  },
+
+  "contactPage": {
+    "hero": {
+      "badge": "PREMIUM B2B SUPPORT",
+      "title": "Direct Contact",
+      "subtitle": "Immediate response for your urgent needs."
+    },
+    "cards": {
+      "whatsapp": {
+        "title": "WhatsApp",
+        "subtitle": "Instant response",
+        "cta": "Chat now"
+      },
+      "phone": {
+        "title": "Direct Call",
+        "subtitle": "Mon-Sat: 8am - 6pm"
+      },
+      "email": {
+        "title": "Email",
+        "subtitle": "For formal quote"
+      },
+      "location": {
+        "title": "Headquarters",
+        "subtitle": "Tunisia",
+        "desc": "Central Mediterranean Export Hub"
+      },
+      "socials": {
+        "instagram": "Instagram",
+        "facebook": "Facebook"
+      }
+    },
+    "form": {
+      "title": "Or send a message",
+      "subtitle": "We will process your email within 24h",
+      "name": "NAME",
+      "company": "COMPANY",
+      "email": "EMAIL",
+      "phone": "PHONE",
+      "message": "MESSAGE",
+      "submit": "Send message"
+    }
+  },
+
+  "productsData": {
+    "categories": {
+      "crevettes-crustaces": {
+        "name": "Shrimp & Crustaceans",
+        "description": "Premium quality white and red shrimp, prawns and crustaceans from the Mediterranean."
+      },
+      "calamars-poulpes": {
+        "name": "Squid & Octopus",
+        "description": "Squid tubes, tentacles and whole octopus caught in the Mediterranean."
+      },
+      "mollusques": {
+        "name": "Mollusks",
+        "description": "Fresh or frozen mussels, oysters, clams and shellfish from our coasts."
+      },
+      "poissons-mediterranee": {
+        "name": "Mediterranean Fish",
+        "description": "Sea bass, sea bream, whiting, sardines and noble fish from the Mediterranean."
+      },
+      "saumon-thon": {
+        "name": "Salmon & Tuna",
+        "description": "Fillets, steaks and blocks of Atlantic salmon and export-quality tuna."
+      },
+      "caviar-haute-gastronomie": {
+        "name": "Caviar & Fine Dining",
+        "description": "Exceptional caviar and luxury products for prestigious establishments."
+      },
+      "oeufs-de-poisson-boutargue": {
+        "name": "Fish Roe & Bottarga",
+        "description": "Fresh, frozen and dried fish roe (bottarga), for professionals and export."
+      }
+    },
+    "products": {
+      "merou-rouge": {
+        "name": "Red Grouper",
+        "description": "Wild Mediterranean red grouper (Hammour), with dense and refined flesh, ideal for signature dishes baked, grilled or slow-cooked.",
+        "tags": ["Premium", "Noble Fish", "HORECA"],
+        "origin": "Mediterranean",
+        "type": "Fresh / Frozen",
+        "usage": ["Gourmet restaurants", "Hotels", "High-end caterers"],
+        "formats": ["Whole fish", "Steaks on request"]
+      },
+      "merou-blanc": {
+        "name": "White Grouper",
+        "description": "Mediterranean white grouper, a noble fish with delicate and flavorful flesh, perfect for baking, grilling or in sauce.",
+        "tags": ["Premium", "Noble Fish", "Export"],
+        "origin": "Mediterranean",
+        "type": "Fresh / Frozen",
+        "usage": ["Specialty restaurants", "Hotels", "High-end fishmongers"],
+        "formats": ["Whole in iced box", "Cut to order"]
+      },
+      "pagre": {
+        "name": "Red Porgy",
+        "description": "Fresh Mediterranean red porgy (Merjan), a fish with firm white flesh, highly prized for grilling and traditional Tunisian recipes.",
+        "tags": ["White Fish", "Traditional"],
+        "origin": "Mediterranean",
+        "type": "Fresh",
+        "usage": ["Fishmongers", "Restaurants", "Home cooking"],
+        "formats": ["Bulk box", "Export packaging"]
+      },
+      "dorade": {
+        "name": "Sea Bream",
+        "description": "Whole Mediterranean sea bream, with a fine and elegant profile, ideal for baking, salt crust or whole grilling.",
+        "tags": ["Iconic Fish", "HORECA"],
+        "origin": "Mediterranean",
+        "type": "Fresh",
+        "usage": ["Restaurants", "Hotels", "Fishmongers"],
+        "formats": ["Whole in iced box"]
+      },
+      "loup": {
+        "name": "Sea Bass",
+        "description": "Whole Mediterranean sea bass (bar), with fine and delicate flesh, perfect for en croûte, baked or grilled.",
+        "tags": ["White Fish", "HORECA"],
+        "origin": "Mediterranean",
+        "type": "Fresh",
+        "usage": ["Restaurants", "Fishmongers", "Home cooking"],
+        "formats": ["Bulk box", "HORECA packaging"]
+      },
+      "rouget-de-roche": {
+        "name": "Red Mullet",
+        "description": "Red mullet, a colorful fish with a pronounced iodized taste, highly sought after for gourmet dishes and Mediterranean recipes.",
+        "tags": ["Gastronomy", "Colorful Fish"],
+        "origin": "Mediterranean",
+        "type": "Fresh",
+        "usage": ["Gourmet restaurants", "Seafood bistros"],
+        "formats": ["Bulk box"]
+      },
+      "merlu": {
+        "name": "Hake",
+        "description": "Mediterranean hake, with tender and light flesh, ideal for frying, steaming, in sauce or as brandade.",
+        "tags": ["White Fish", "Versatile"],
+        "origin": "Mediterranean",
+        "type": "Fresh / Frozen",
+        "usage": ["Mass catering", "Fishmongers", "Processing"],
+        "formats": ["5-10 kg bulk box"]
+      },
+      "tilapia-du-nil": {
+        "name": "Nile Tilapia",
+        "description": "Nile tilapia from controlled aquaculture, a fish with mild and neutral flesh, appreciated for frying, pan-frying and spiced preparations.",
+        "tags": ["Aquaculture", "Economical Fish"],
+        "origin": "Controlled farming",
+        "type": "Fresh / Frozen",
+        "usage": ["Restaurants", "Fast food", "Fishmongers"],
+        "formats": ["Bulk box", "Weight-based bags"]
+      },
+      "tilapia-rouge": {
+        "name": "Red Tilapia",
+        "description": "Red tilapia, a farmed fish with tender and soft flesh, ideal for whole frying, grilling and family dishes.",
+        "tags": ["Aquaculture", "Colorful"],
+        "origin": "Farmed",
+        "type": "Fresh / Frozen",
+        "usage": ["Fishmongers", "Family restaurants"],
+        "formats": ["Bulk box", "Weight packaging"]
+      },
+      "filets-de-tilapia": {
+        "name": "Tilapia Fillets",
+        "description": "Boneless tilapia fillets, ready to cook, perfect for frying, breading, diet meals and fast food.",
+        "tags": ["Ready to Cook", "Fillets"],
+        "origin": "Farmed",
+        "type": "Frozen",
+        "usage": ["Restaurants", "Fast food", "Mass catering"],
+        "formats": ["1 kg bags", "5-10 kg boxes"]
+      },
+      "carpe": {
+        "name": "Carp",
+        "description": "Freshwater carp, a traditional fish with firm flesh, suitable for stewed recipes, grilling and regional specialties.",
+        "tags": ["Freshwater Fish", "Traditional"],
+        "origin": "Farmed / Freshwater",
+        "type": "Fresh",
+        "usage": ["Traditional restaurants", "Fishmongers"],
+        "formats": ["Bulk box"]
+      },
+      "filets-de-carpe": {
+        "name": "Carp Fillets",
+        "description": "Prepared and boneless carp fillets, practical for direct use in cooking, frying, sauce or baking.",
+        "tags": ["Ready to Cook", "Fillets"],
+        "origin": "Farmed / Freshwater",
+        "type": "Fresh / Frozen",
+        "usage": ["Restaurants", "Fishmongers", "Caterers"],
+        "formats": ["Vacuum trays", "Frozen bags"]
+      },
+      "sole": {
+        "name": "Sole",
+        "description": "Mediterranean sole, a flatfish with fine and delicate flesh, essential for gourmet menus.",
+        "tags": ["Flatfish", "Gastronomy"],
+        "origin": "Mediterranean",
+        "type": "Fresh",
+        "usage": ["Gourmet restaurants", "Hotels", "Premium fishmongers"],
+        "formats": ["Bulk box", "HORECA calibrated"]
+      },
+      "mulet": {
+        "name": "Grey Mullet",
+        "description": "Mediterranean grey mullet, a fish with flavorful flesh often used for grilling, tagines and bottarga preparation.",
+        "tags": ["Traditional Fish", "For Bottarga"],
+        "origin": "Mediterranean",
+        "type": "Fresh",
+        "usage": ["Fishmongers", "Restaurants", "Bottarga processing"],
+        "formats": ["Bulk box"]
+      },
+      "filets-de-saumon-avec-peau": {
+        "name": "Salmon Fillets (with skin)",
+        "description": "Atlantic salmon fillets with skin, rich in omega-3, perfect for grilling, baking or plancha.",
+        "tags": ["Fillets", "Omega-3", "Premium"],
+        "origin": "Norway / Controlled farming",
+        "type": "Fresh / Frozen",
+        "usage": ["Restaurants", "Hotels", "Retail distribution"],
+        "formats": ["Calibrated fillets", "5-10 kg boxes"]
+      },
+      "filets-de-saumon-sans-peau": {
+        "name": "Salmon Fillets (skinless)",
+        "description": "Skinless salmon fillets, ready to portion or cook, suitable for restaurants, premium snacking and prepared meals.",
+        "tags": ["Ready to Portion", "Fillets"],
+        "origin": "Norway / Controlled farming",
+        "type": "Frozen",
+        "usage": ["Restaurants", "Food industry", "Caterers"],
+        "formats": ["Blocks or vacuum fillets", "Export box"]
+      },
+      "tranches-de-saumon-fume": {
+        "name": "Smoked Salmon Slices",
+        "description": "Delicately smoked salmon slices, ready to be served on toast, catering platters or cold buffets.",
+        "tags": ["Smoked", "Catering", "Premium"],
+        "origin": "Norway",
+        "type": "Fresh / Vacuum-packed",
+        "usage": ["Caterers", "Hotels", "Events"],
+        "formats": ["Vacuum sliced plates"]
+      },
+      "encornet": {
+        "name": "Squid",
+        "description": "Tender and flavorful squid (h'bar), ideal for frying, stuffing, sauces or plancha preparations.",
+        "tags": ["Mediterranean Cuisine", "Frying"],
+        "origin": "Mediterranean",
+        "type": "Fresh / Frozen",
+        "usage": ["Restaurants", "Fishmongers", "Seafood snacking"],
+        "formats": ["Bulk box", "IQF bags"]
+      },
+      "poulpe": {
+        "name": "Octopus",
+        "description": "Mediterranean octopus, ideal for grilling, warm salads, tapas and long-simmered traditional dishes.",
+        "tags": ["Tapas", "Grilling", "HORECA"],
+        "origin": "Mediterranean",
+        "type": "Frozen",
+        "usage": ["Restaurants", "Tapas bars", "Caterers"],
+        "formats": ["IQF bulk", "Whole pieces"]
+      },
+      "calamar-tube-100-300": {
+        "name": "Calamari",
+        "description": "Calibrated calamari tubes 100/300, perfectly cleaned, ready to be stuffed, cut into rings or pan-fried.",
+        "tags": ["Ready to Stuff", "Standardized"],
+        "origin": "Mediterranean",
+        "type": "Frozen IQF",
+        "usage": ["Restaurants", "Industry", "Caterers"],
+        "formats": ["10 kg IQF boxes"]
+      },
+      "langouste": {
+        "name": "Spiny Lobster",
+        "description": "Rock lobster, an exceptional crustacean for seafood platters, gourmet menus and high-end events.",
+        "tags": ["Prestige", "Gastronomy", "Seafood"],
+        "origin": "Mediterranean / Atlantic",
+        "type": "Frozen",
+        "usage": ["Gourmet restaurants", "Luxury hotels", "Event caterers"],
+        "formats": ["Whole frozen piece", "Export box"]
+      },
+      "crevette-blanche": {
+        "name": "White Shrimp",
+        "description": "Versatile white shrimp, ideal for grilling, sautéing, sauce dishes, paellas or pasta garnishes.",
+        "tags": ["Versatile", "HORECA"],
+        "origin": "Mediterranean / Aquaculture",
+        "type": "Frozen",
+        "usage": ["Restaurants", "Fast food", "Caterers"],
+        "formats": ["IQF bulk", "1-2 kg bags"]
+      },
+      "chevrette": {
+        "name": "Caramote Prawn",
+        "description": "Local caramote prawn, with fine and sweet flavor, highly appreciated for frying, grilling and Mediterranean dishes.",
+        "tags": ["Local", "Fresh", "Gastronomy"],
+        "origin": "Tunisia / Mediterranean",
+        "type": "Fresh / Frozen",
+        "usage": ["Seafood bistros", "Restaurants", "Gourmet shops"],
+        "formats": ["Bulk", "Tray"]
+      },
+      "crabe-bleu-decoupe": {
+        "name": "Blue Crab (Cut)",
+        "description": "Cut blue crab, with fragrant flesh, ideal for bisques, sauces, pasta, paellas and seafood buffets.",
+        "tags": ["Blue Crab", "Creative Cuisine"],
+        "origin": "Mediterranean",
+        "type": "Frozen",
+        "usage": ["Restaurants", "Caterers", "Fusion cuisine"],
+        "formats": ["1 kg bags", "5-10 kg boxes"]
+      },
+      "crevette-rouge": {
+        "name": "Red Shrimp",
+        "description": "Deep-sea red shrimp, highly sought after for its vibrant color and fine flesh, perfect for signature dishes and refined presentations.",
+        "tags": ["Premium", "Deep-sea", "Gastronomy"],
+        "origin": "Mediterranean",
+        "type": "Fresh / Frozen",
+        "usage": ["Gourmet restaurants", "High-end tapas bars"],
+        "formats": ["IQF bulk", "Export boxes"]
+      },
+      "mixte-fruits-de-mer": {
+        "name": "Mixed Seafood",
+        "description": "Ready-to-use seafood mix, ideal for paellas, risottos, pizzas, pasta and wok dishes.",
+        "tags": ["Mixed", "Ready to Cook"],
+        "origin": "Mediterranean / Atlantic selection",
+        "type": "Frozen",
+        "usage": ["Fast food", "Mass catering", "Caterers"],
+        "formats": ["1-2.5 kg bags", "10 kg boxes"]
+      },
+      "caviar-beluga": {
+        "name": "Beluga Caviar",
+        "description": "Beluga caviar, large and melting pearls, an exceptional product for gourmet tables, VIP receptions and food and champagne pairings.",
+        "tags": ["Luxury", "Ultra-Premium", "Gastronomy"],
+        "origin": "Controlled farming",
+        "type": "Fresh",
+        "usage": ["Michelin-starred restaurants", "Luxury hotels", "High-end events"],
+        "formats": ["30g tins", "50g", "100g", "250g"]
+      },
+      "caviar-impérial": {
+        "name": "Imperial Caviar",
+        "description": "Imperial caviar, balanced and aromatic grains, ideal for room service, premium platters and refined tastings.",
+        "tags": ["Premium", "Luxury"],
+        "origin": "Controlled farming",
+        "type": "Fresh",
+        "usage": ["Hotels", "Gourmet shops", "Prestige caterers"],
+        "formats": ["30g tins", "50g", "100g"]
+      },
+      "caviar-osetra": {
+        "name": "Osetra Caviar",
+        "description": "Osetra caviar, golden to amber grains, with hazelnut notes, perfect for gourmet menus and food and vodka pairings.",
+        "tags": ["Luxury", "Fine Dining"],
+        "origin": "Controlled farming",
+        "type": "Fresh",
+        "usage": ["Gourmet restaurants", "Caviar bars", "Private events"],
+        "formats": ["30g tins", "50g", "100g"]
+      },
+      "boutargue-poudre": {
+        "name": "Bottarga Powder",
+        "description": "Finely ground mullet bottarga, made from dried and aged roe sacs. An exceptional condiment with an intense marine flavor, ideal for enhancing pasta, risottos, eggs, salads, and gourmet creations.",
+        "tags": ["Powder", "Premium Product", "Gastronomy"],
+        "origin": "Mediterranean",
+        "type": "Dry",
+        "usage": ["Gourmet restaurants", "Gourmet shops", "Caterers"],
+        "formats": ["50g Jar", "100g Jar"]
+      },
+      "boutargue-congelee": {
+        "name": "Frozen Bottarga",
+        "description": "Frozen bottarga, ideal for long-term storage while preserving quality, texture and aromatic potential.",
+        "tags": ["Frozen", "Long-term Storage"],
+        "origin": "Mediterranean",
+        "type": "Frozen",
+        "usage": ["Wholesalers", "Export", "Food industry"],
+        "formats": ["Whole vacuum-packed", "Export boxes"]
+      },
+      "boutargue-sechee": {
+        "name": "Dried Bottarga",
+        "description": "Traditional dried bottarga, aged for an intense and salty flavor, perfect grated on pasta, risottos or served in thin slices.",
+        "tags": ["Dried", "Premium Product", "Artisanal"],
+        "origin": "Mediterranean",
+        "type": "Dry",
+        "usage": ["Gourmet restaurants", "Gourmet shops", "Wine bars"],
+        "formats": ["Whole piece", "Vacuum sliced"]
+      },
+      "boutargue-calmar": {
+        "name": "Squid Bottarga",
+        "description": "Dried squid bottarga, delicately salted and aged to offer a melting texture and intense marine flavor. Perfect grated over pasta, risottos, eggs or enjoyed in thin slices.",
+        "tags": ["Dried", "Premium Product", "Gastronomy"],
+        "origin": "Mediterranean",
+        "type": "Dry",
+        "usage": ["Gourmet restaurants", "Gourmet shops"],
+        "formats": ["Whole piece", "Vacuum sliced"]
+      },
+      "crevette-blanche-sans-tete": {
+        "name": "White Shrimp (Headless)",
+        "description": "Headless prepared white shrimp, practical and regular, ideal for wok, sautéing, stewed dishes, buffets and fast food.",
+        "tags": ["Headless", "Practical", "Standardized"],
+        "origin": "Controlled aquaculture",
+        "type": "Frozen",
+        "usage": ["Restaurants", "Asian cuisine", "Prepared meals"],
+        "formats": ["Frozen blocks", "1-2 kg bags"]
+      }
+    },
+    "ui": {
+      "heroTitle": "Seafood — Discover",
+      "heroHighlight": "Shrimp, Lobsters,",
+      "heroSubtitle": "Fish & much more.",
+      "heroCatalog": "Catalog 2024-2025",
+      "heroDescription": "Our mission is to provide sustainable and highest quality seafood. That's why our entire selection comes from fishermen who, like us, are committed to responsible consumption and ocean protection.",
+      "heroApprovedBy": "Approved by",
+      "heroChefs": "+50 Chefs",
+      "filterCategories": "Categories",
+      "filterAllCategories": "All categories",
+      "filterSortBy": "Sort by",
+      "filterSortName": "Name (A-Z)",
+      "filterSortCategory": "Category",
+      "filterReset": "Reset filters",
+      "searchPlaceholder": "Search products...",
+      "searchNoResults": "No products found",
+      "searchNoResultsDesc": "We couldn't find products matching your criteria.",
+      "viewCatalog": "View full catalog",
+      "discoverPremium": "Discover our premium",
+      "productsCount": "products",
+      "resultsTitle": "Search results",
+      "viewProduct": "View product",
+      "requestQuote": "Quote",
+      "whatsappQuote": "WhatsApp Quote",
+      "contact": "Contact",
+      "origin": "Origin",
+      "type": "Type",
+      "recommendedUsage": "Recommended usage",
+      "packaging": "Packaging",
+      "availableVariants": "Available variants",
+      "size": "Size",
+      "caliber": "Caliber",
+      "pieces": "pieces",
+      "grade": "Grade",
+      "discoverMore": "Discover more",
+      "similar": "Similar",
+      "viewAll": "View all",
+      "all": "All",
+      "products": "Products",
+      "backToProducts": "Products",
+      "detailedView": "Detailed view of"
+    }
+  }
+}

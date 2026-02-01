@@ -1,6 +1,7 @@
 "use client"
 
-import Link from "next/link"
+import { useTranslations } from 'next-intl'
+import { Link } from "@/i18n/navigation"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { products } from "@/lib/products-data"
@@ -8,6 +9,7 @@ import { ProductCard } from "@/components/ui/product-card"
 import { Button } from "@/components/ui/button"
 
 export function CatalogPreview() {
+  const t = useTranslations('catalog')
   const previewProducts = products.slice(0, 6)
 
   return (
@@ -19,10 +21,10 @@ export function CatalogPreview() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-xs text-tafc-blue-medium uppercase tracking-wider font-semibold mb-3">Notre catalogue</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-tafc-text-primary mb-4">Un aperçu de notre catalogue</h2>
+          <p className="text-xs text-tafc-blue-medium uppercase tracking-wider font-semibold mb-3">{t('badge')}</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-tafc-text-primary mb-4">{t('title')}</h2>
           <p className="text-tafc-text-secondary max-w-2xl mx-auto">
-            Découvrez quelques-unes de nos références emblématiques avant d&apos;explorer tous les produits.
+            {t('description')}
           </p>
         </motion.div>
 
@@ -44,7 +46,7 @@ export function CatalogPreview() {
             className="bg-tafc-coral hover:bg-tafc-coral-dark text-white font-semibold px-8 transition-all hover:-translate-y-0.5 hover:shadow-lg"
           >
             <Link href="/products">
-              Voir tout le catalogue
+              {t('viewAll')}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>

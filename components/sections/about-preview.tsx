@@ -1,43 +1,41 @@
 "use client"
 
 import Image from "next/image"
+import { useTranslations } from 'next-intl'
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Ship, Fish, Award, CheckCircle2 } from "lucide-react"
 
-const pillars = [
+const pillarConfig = [
   {
+    key: "vision",
     icon: Ship,
-    title: "Vision",
-    description: "Devenir une référence internationale en produits de la mer méditerranéens de haute qualité.",
     gradient: "from-cyan-500/20 to-blue-500/20",
     iconColor: "text-cyan-400",
   },
   {
+    key: "mission",
     icon: Fish,
-    title: "Mission",
-    description:
-      "Fournir des produits sûrs, tracés, adaptés aux besoins des professionnels, tout en respectant l'environnement marin.",
     gradient: "from-teal-500/20 to-cyan-500/20",
     iconColor: "text-teal-400",
   },
   {
+    key: "whyTafc",
     icon: Award,
-    title: "Pourquoi TAFC ?",
-    description: "Qualité constante, volumes export, flexibilité et accompagnement B2B personnalisé.",
     gradient: "from-blue-500/20 to-indigo-500/20",
     iconColor: "text-blue-400",
   },
 ]
 
-const highlights = [
-  "Partenariat stratégique Tunisie-Algérie",
-  "Flottes modernes et centres certifiés",
-  "Traçabilité complète garantie",
-  "Normes internationales respectées",
+const highlightKeys = [
+  "partnership",
+  "modernFleets",
+  "traceability",
+  "standards",
 ]
 
 export function AboutPreview() {
+  const t = useTranslations('about')
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
@@ -59,13 +57,12 @@ export function AboutPreview() {
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <span className="inline-block text-[10px] sm:text-xs text-cyan-400 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold mb-3 sm:mb-4 border border-cyan-400/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-cyan-400/5">
-            Qui sommes-nous
+            {t('badge')}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 text-balance leading-tight px-2">
-            Une alliance stratégique entre la{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">Tunisie</span> et
-            l&apos;
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Algérie</span>
+            {t('titlePart1')}{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">{t('tunisia')}</span> {t('and')}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">{t('algeria')}</span>
           </h2>
         </motion.div>
 
@@ -83,14 +80,14 @@ export function AboutPreview() {
               <div className="relative h-72 md:h-96 rounded-3xl overflow-hidden shadow-2xl shadow-black/40">
                 <Image
                   src="/mediterranean-fishing-boats-harbor-tunisia-sunrise.jpg"
-                  alt="Flotte de pêche méditerranéenne TAFC"
+                  alt={t('imageAlt.fleet')}
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5">
                   <span className="bg-white/10 backdrop-blur-md text-white text-sm font-medium px-4 py-2 rounded-full border border-white/10">
-                    Nos flottes modernes
+                    {t('modernFleets')}
                   </span>
                 </div>
               </div>
@@ -104,7 +101,7 @@ export function AboutPreview() {
               >
                 <Image
                   src="/seafood-processing-facility-workers-quality-contro.jpg"
-                  alt="Centre de traitement TAFC"
+                  alt={t('imageAlt.processing')}
                   fill
                   className="object-cover"
                 />
@@ -118,7 +115,7 @@ export function AboutPreview() {
               >
                 <Image
                   src="/fresh-fish-market-selection-mediterranean-premium.jpg"
-                  alt="Sélection de poissons frais"
+                  alt={t('imageAlt.selection')}
                   fill
                   className="object-cover"
                 />
@@ -135,7 +132,7 @@ export function AboutPreview() {
               <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
                 15+
               </div>
-              <div className="text-sm text-gray-300 mt-1">Années d&apos;expérience</div>
+              <div className="text-sm text-gray-300 mt-1">{t('yearsExperience')}</div>
             </motion.div>
           </motion.div>
 
@@ -146,20 +143,17 @@ export function AboutPreview() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              TAFC est un acteur majeur de la pêche, de la transformation et de l&apos;export de produits de la mer en
-              Méditerranée. Notre partenariat unique entre la Tunisie et l&apos;Algérie nous permet d&apos;assurer une
-              offre complète et diversifiée.
+              {t('description1')}
             </p>
             <p className="text-gray-400 leading-relaxed mb-8">
-              Nous travaillons avec des flottes modernes et des centres de conditionnement certifiés pour garantir la
-              sécurité alimentaire, la traçabilité et la durabilité de nos ressources marines.
+              {t('description2')}
             </p>
 
             {/* Highlights */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {highlights.map((item, index) => (
+              {highlightKeys.map((key, index) => (
                 <motion.div
-                  key={index}
+                  key={key}
                   initial={{ opacity: 0, x: 20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.5 + index * 0.1 }}
@@ -168,7 +162,7 @@ export function AboutPreview() {
                   <div className="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-colors">
                     <CheckCircle2 className="w-4 h-4 text-cyan-400" />
                   </div>
-                  <span className="text-sm text-gray-200 font-medium">{item}</span>
+                  <span className="text-sm text-gray-200 font-medium">{t(`highlights.${key}`)}</span>
                 </motion.div>
               ))}
             </div>
@@ -177,9 +171,9 @@ export function AboutPreview() {
 
         {/* Vision / Mission / Pourquoi TAFC Cards */}
         <div className="grid md:grid-cols-3 gap-6">
-          {pillars.map((pillar, index) => (
+          {pillarConfig.map((pillar, index) => (
             <motion.div
-              key={pillar.title}
+              key={pillar.key}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6 + index * 0.15, duration: 0.6 }}
@@ -204,8 +198,8 @@ export function AboutPreview() {
                   <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300">
                     <pillar.icon className={`w-7 h-7 ${pillar.iconColor}`} />
                   </div>
-                  <h3 className="font-bold text-xl text-white mb-3 tracking-tight">{pillar.title}</h3>
-                  <p className="text-gray-300/90 leading-relaxed">{pillar.description}</p>
+                  <h3 className="font-bold text-xl text-white mb-3 tracking-tight">{t(`pillars.${pillar.key}.title`)}</h3>
+                  <p className="text-gray-300/90 leading-relaxed">{t(`pillars.${pillar.key}.description`)}</p>
                 </div>
               </div>
             </motion.div>

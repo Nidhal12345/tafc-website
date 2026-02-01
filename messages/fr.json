@@ -1,0 +1,680 @@
+{
+  "metadata": {
+    "locale": "fr",
+    "direction": "ltr",
+    "name": "Français"
+  },
+
+  "nav": {
+    "home": "Accueil",
+    "products": "Produits",
+    "about": "À propos",
+    "contact": "Contact",
+    "menu": "Menu",
+    "navigation": "Navigation",
+    "whatsappMessage": "Bonjour TAFC, je souhaite en savoir plus sur vos produits de la mer."
+  },
+
+  "hero": {
+    "badge": "TAFC — Mediterranean Seafood",
+    "titleLine1": "Des produits de la mer",
+    "titleHighlight": "d'exception",
+    "subtitle": "entre la Tunisie et l'Algérie",
+    "description": "The Tunisian Algerian Fish Company accompagne les restaurants, hôtels, traiteurs et commerces spécialisés avec une sélection rigoureuse de poissons et fruits de mer frais, tracés et prêts à être cuisinés.",
+    "ctaPrimary": "Découvrir nos produits",
+    "ctaSecondary": "En savoir plus sur nous",
+    "featuredSelection": "Sélection mise en avant",
+    "products": {
+      "seaBass": {
+        "name": "Loup de Mer",
+        "subtitle": "Qualité premium",
+        "badge": "Best-seller"
+      },
+      "seaBream": {
+        "name": "Dorade Royale",
+        "subtitle": "Qualité premium",
+        "badge": "Premium"
+      },
+      "prawns": {
+        "name": "Crevettes Géantes",
+        "subtitle": "Qualité premium",
+        "badge": "Sélection du jour"
+      }
+    }
+  },
+
+  "marquee": {
+    "items": {
+      "premiumQuality": "PREMIUM QUALITY",
+      "internationalExport": "EXPORT INTERNATIONAL",
+      "sustainableFishing": "PÊCHE DURABLE",
+      "guaranteedFreshness": "FRAÎCHEUR GARANTIE",
+      "fullTraceability": "TRAÇABILITÉ TOTALE",
+      "certifiedProducts": "PRODUITS CERTIFIÉS",
+      "fastDelivery": "LIVRAISON RAPIDE"
+    }
+  },
+
+  "about": {
+    "badge": "Qui sommes-nous",
+    "titlePart1": "Une alliance stratégique entre la",
+    "tunisia": "Tunisie",
+    "and": "et l'",
+    "algeria": "Algérie",
+    "description1": "TAFC est un acteur majeur de la pêche, de la transformation et de l'export de produits de la mer en Méditerranée. Notre partenariat unique entre la Tunisie et l'Algérie nous permet d'assurer une offre complète et diversifiée.",
+    "description2": "Nous travaillons avec des flottes modernes et des centres de conditionnement certifiés pour garantir la sécurité alimentaire, la traçabilité et la durabilité de nos ressources marines.",
+    "imageAlt": {
+      "fleet": "Flotte de pêche méditerranéenne TAFC",
+      "processing": "Centre de traitement TAFC",
+      "selection": "Sélection de poissons frais"
+    },
+    "modernFleets": "Nos flottes modernes",
+    "yearsExperience": "Années d'expérience",
+    "highlights": {
+      "partnership": "Partenariat stratégique Tunisie-Algérie",
+      "modernFleets": "Flottes modernes et centres certifiés",
+      "traceability": "Traçabilité complète garantie",
+      "standards": "Normes internationales respectées"
+    },
+    "pillars": {
+      "vision": {
+        "title": "Vision",
+        "description": "Devenir une référence internationale en produits de la mer méditerranéens de haute qualité."
+      },
+      "mission": {
+        "title": "Mission",
+        "description": "Fournir des produits sûrs, tracés, adaptés aux besoins des professionnels, tout en respectant l'environnement marin."
+      },
+      "whyTafc": {
+        "title": "Pourquoi TAFC ?",
+        "description": "Qualité constante, volumes export, flexibilité et accompagnement B2B personnalisé."
+      }
+    }
+  },
+
+  "bestSellers": {
+    "badge": "Produits populaires",
+    "title": "Sélection Best-Sellers",
+    "description": "Nos références phares plébiscitées par nos clients internationaux et partenaires de distribution.",
+    "viewProduct": "Voir le produit",
+    "previousSlide": "Diapositive précédente",
+    "nextSlide": "Diapositive suivante"
+  },
+
+  "categories": {
+    "badge": "Nos gammes",
+    "title": "Des gammes structurées pour vos besoins",
+    "description": "Notre offre couvre l'ensemble des produits de la mer : crevettes, calamars, poulpes, mollusques, poissons méditerranéens, saumon, thon, caviar et œufs de poisson.",
+    "viewProducts": "Voir les produits",
+    "viewFullCatalog": "Voir le catalogue complet"
+  },
+
+  "targetClients": {
+    "badge": "TUNISIAN · ALGERIAN SEAFOOD",
+    "titlePart1": "Sublimez vos cartes avec le",
+    "titleHighlight": "meilleur",
+    "titlePart2": "de la Méditerranée.",
+    "description": "Des produits ultra-frais, sourcés avec exigence pour les restaurants, hôtels, chefs et professionnels entre la Tunisie et l'Algérie.",
+    "ctaPrimary": "Voir nos produits",
+    "ctaSecondary": "Découvrir notre approche",
+    "videoBadge": "FRESH • DAILY • PREMIUM"
+  },
+
+  "catalog": {
+    "badge": "Notre catalogue",
+    "title": "Un aperçu de notre catalogue",
+    "description": "Découvrez quelques-unes de nos références emblématiques avant d'explorer tous les produits.",
+    "viewAll": "Voir tout le catalogue"
+  },
+
+  "contact": {
+    "badge": "Contact",
+    "title": "Parlons de vos besoins en produits de la mer",
+    "description": "Dites-nous quel type d'établissement vous êtes, vos volumes, vos fréquences de livraison… Notre équipe vous accompagne dans la définition de votre approvisionnement.",
+    "cta": "Prendre contact avec l'équipe",
+    "location": "Basé en Tunisie & Algérie",
+    "mapTitle": "Localisation TAFC - Tunisie & Algérie"
+  },
+
+  "footer": {
+    "tagline": "Fournisseur B2B de produits de la mer premium. Qualité, traçabilité et fraîcheur garanties pour les professionnels exigeants.",
+    "navigation": "Navigation",
+    "ourProducts": "Nos Produits",
+    "contact": "Contact",
+    "location": {
+      "line1": "Tunisie & Algérie",
+      "line2": "Méditerranée"
+    },
+    "hours": "Lun - Sam: 8h - 18h",
+    "copyright": "© {year} TAFC - Tunisian Algerian Fish Company. Tous droits réservés.",
+    "productCategories": {
+      "shrimp": "Crevettes & Crustacés",
+      "mediterraneanFish": "Poissons Méditerranée",
+      "squidOctopus": "Calamars & Poulpes",
+      "salmonTuna": "Saumon & Thon"
+    }
+  },
+
+  "products": {
+    "pageTitle": "Nos Produits",
+    "pageDescription": "Découvrez notre sélection de produits de la mer premium",
+    "filterByCategory": "Filtrer par catégorie",
+    "allProducts": "Tous les produits",
+    "searchPlaceholder": "Rechercher un produit...",
+    "noResults": "Aucun produit trouvé",
+    "viewDetails": "Voir les détails",
+    "addToInquiry": "Ajouter à la demande",
+    "origin": "Origine",
+    "preparation": "Préparation",
+    "caliber": "Calibre",
+    "size": "Taille"
+  },
+
+  "common": {
+    "learnMore": "En savoir plus",
+    "viewAll": "Voir tout",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "whatsapp": "WhatsApp"
+  },
+
+  "seo": {
+    "title": "TAFC - The Tunisian Algerian Fish Company | Produits de la Mer Premium B2B",
+    "titleTemplate": "%s | TAFC - Produits de la Mer",
+    "description": "Fournisseur B2B premium de produits de la mer : Crevettes royales, poulpe, calamars, poissons méditerranéens frais et congelés. Exportateur certifié pour professionnels HORECA depuis la Tunisie et l'Algérie.",
+    "ogTitle": "TAFC - Excellence des Produits de la Mer Premium",
+    "ogDescription": "Votre partenaire de confiance pour l'import-export de produits de la mer premium depuis la Tunisie et l'Algérie. Qualité certifiée pour les professionnels.",
+    "twitterDescription": "Exportation de produits de la mer frais et congelés pour le marché international. Qualité premium garantie."
+  },
+
+  "aboutPage": {
+    "hero": {
+      "titlePart1": "La Qualité",
+      "titlePart2": "Sans Frontières",
+      "slogan": "Les poissons de la Méditerranée, une saveur sans frontières."
+    },
+    "presentation": {
+      "badge": "Notre Identité",
+      "title": "Présentation",
+      "text": "La Société Tunisienne Algérienne des Poissons est spécialisée dans la pêche, la transformation et la commercialisation des produits de la mer, issus de la Méditerranée.",
+      "fishing": "PÊCHE",
+      "export": "EXPORT"
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "Fournir des produits de la mer frais et surgelés, de manière durable, en valorisant les ressources marines communes entre la Tunisie et l’Algérie."
+    },
+    "advantage": {
+      "title": "Avantage concurrentiel",
+      "text": "Une entreprise intégrée disposant d’une chaîne de production courte et maîtrisée, garantissant fraîcheur, traçabilité et contrôle qualité depuis la source."
+    },
+    "values": {
+      "title": "Nos Principes Fondamentaux",
+      "subtitle": "Une approche intransigeante de la qualité, guidée par le respect de la nature et de nos partenaires.",
+      "cards": {
+        "excellence": {
+          "title": "Excellence",
+          "subtitle": "QUALITÉ ABSOLUE",
+          "desc": "Du bateau à l'assiette, nous garantissons une traçabilité totale et une fraîcheur inégalée."
+        },
+        "cooperation": {
+          "title": "Coopération",
+          "subtitle": "CONFIANCE MUTUELLE",
+          "desc": "Bâtir des ponts solides entre les nations et les hommes pour une croissance partagée."
+        },
+        "responsibility": {
+          "title": "Responsabilité",
+          "subtitle": "ENGAGEMENT NATURE",
+          "desc": "Préserver la richesse de la Méditerranée pour les générations futures est notre devoir."
+        }
+      }
+    },
+    "vision": {
+      "bgText": "VISION 2030 VISION",
+      "badge": "VISION & AMBITION",
+      "titlePart1": "Devenir la",
+      "titleHighlight": "Référence",
+      "titlePart2": "Absolue.",
+      "card": {
+        "title": "Un Pont Entre Deux Rives",
+        "description": "Nous unissons le savoir-faire tunisien et la richesse algérienne pour offrir le meilleur de la Méditerranée au marché mondial.",
+        "ctaContact": "Contactez-nous",
+        "ctaCatalog": "Explorer le Catalogue"
+      }
+    }
+  },
+
+  "contactPage": {
+    "hero": {
+      "badge": "SUPPORT PREMIUM B2B",
+      "title": "Contact Direct",
+      "subtitle": "Une réponse immédiate pour vos besoins urgents."
+    },
+    "cards": {
+      "whatsapp": {
+        "title": "WhatsApp",
+        "subtitle": "Réponse instantanée",
+        "cta": "Chatter maintenant"
+      },
+      "phone": {
+        "title": "Appel Direct",
+        "subtitle": "Lun-Sam: 8h - 18h"
+      },
+      "email": {
+        "title": "Email",
+        "subtitle": "Pour devis formel"
+      },
+      "location": {
+        "title": "Siège Social",
+        "subtitle": "Tunisie",
+        "desc": "Plateforme d'exportation Méditerranée Centrale"
+      },
+      "socials": {
+        "instagram": "Instagram",
+        "facebook": "Facebook"
+      }
+    },
+    "form": {
+      "title": "Ou envoyez un message",
+      "subtitle": "Nous traiterons votre email sous 24h",
+      "name": "NOM",
+      "company": "SOCIÉTÉ",
+      "email": "EMAIL",
+      "phone": "TÉLÉPHONE",
+      "message": "MESSAGE",
+      "submit": "Envoyer le message"
+    }
+  },
+
+  "productsData": {
+    "categories": {
+      "crevettes-crustaces": {
+        "name": "Crevettes & Crustacés",
+        "description": "Crevettes blanches, rouges, gambas et crustacés de qualité premium méditerranéenne."
+      },
+      "calamars-poulpes": {
+        "name": "Calamars & Poulpes",
+        "description": "Calamars tubes, tentacules et poulpes entiers pêchés en Méditerranée."
+      },
+      "mollusques": {
+        "name": "Mollusques",
+        "description": "Moules, huîtres, palourdes et coquillages frais ou surgelés de nos côtes."
+      },
+      "poissons-mediterranee": {
+        "name": "Poissons Méditerranée",
+        "description": "Bar, dorade, merlan, sardines et poissons nobles de la Méditerranée."
+      },
+      "saumon-thon": {
+        "name": "Saumon & Thon",
+        "description": "Filets, pavés et blocs de saumon atlantique et thon de qualité export."
+      },
+      "caviar-haute-gastronomie": {
+        "name": "Caviar & Haute Gastronomie",
+        "description": "Caviar d'exception et produits de luxe pour les établissements prestigieux."
+      },
+      "oeufs-de-poisson-boutargue": {
+        "name": "Œufs de poisson & Boutargue",
+        "description": "Œufs de poisson frais, congelés et séchés (boutargue), destinés aux professionnels et à l'export."
+      }
+    },
+    "products": {
+      "merou-rouge": {
+        "name": "Mérou Rouge",
+        "description": "Mérou rouge (Hammour) sauvage de Méditerranée, à la chair dense et raffinée, idéal pour des plats signatures au four, à la plancha ou en cuisson lente.",
+        "tags": ["Premium", "Poisson noble", "HORECA"],
+        "origin": "Méditerranée",
+        "type": "Frais / Congelé",
+        "usage": ["Restaurants gastronomiques", "Hôtels", "Traiteurs haut de gamme"],
+        "formats": ["Poisson entier", "Tronçons sur commande"]
+      },
+      "merou-blanc": {
+        "name": "Mérou Blanc",
+        "description": "Mérou blanc de Méditerranée, poisson noble à la chair délicate et savoureuse, parfait pour les cuissons au four, au grill ou en sauce.",
+        "tags": ["Premium", "Poisson noble", "Export"],
+        "origin": "Méditerranée",
+        "type": "Frais / Congelé",
+        "usage": ["Restaurants de spécialités", "Hôtels", "Poissonneries haut de gamme"],
+        "formats": ["Entier en caisse glacée", "Tronçonné sur demande"]
+      },
+      "pagre": {
+        "name": "Pagre",
+        "description": "Pagre (Merjan) frais de Méditerranée, poisson à la chair blanche et ferme, très apprécié pour les grillades et les recettes traditionnelles tunisiennes.",
+        "tags": ["Poisson blanc", "Traditionnel"],
+        "origin": "Méditerranée",
+        "type": "Frais",
+        "usage": ["Poissonneries", "Restaurants", "Cuisine familiale"],
+        "formats": ["Caisse vrac", "Conditionnement export"]
+      },
+      "dorade": {
+        "name": "Dorade",
+        "description": "Dorade entière de Méditerranée, au profil fin et élégant, idéale pour une cuisson au four, en croûte de sel ou à la grillade entière.",
+        "tags": ["Poisson emblématique", "HORECA"],
+        "origin": "Méditerranée",
+        "type": "Frais",
+        "usage": ["Restaurants", "Hôtels", "Poissonneries"],
+        "formats": ["Entière en caisse glacée"]
+      },
+      "loup": {
+        "name": "Loup entier",
+        "description": "Loup de mer (bar) entier de Méditerranée, à la chair fine et délicate, parfait pour les cuissons en croûte, au four ou à la plancha.",
+        "tags": ["Poisson blanc", "HORECA"],
+        "origin": "Méditerranée",
+        "type": "Frais",
+        "usage": ["Restaurants", "Poissonneries", "Cuisine familiale"],
+        "formats": ["Caisse vrac", "Conditionnement HORECA"]
+      },
+      "rouget-de-roche": {
+        "name": "Rouget de Roche",
+        "description": "Rouget de roche, poisson coloré au goût prononcé et iodé, très recherché pour les assiettes gastronomiques et les recettes méditerranéennes.",
+        "tags": ["Gastronomie", "Poisson coloré"],
+        "origin": "Méditerranée",
+        "type": "Frais",
+        "usage": ["Restaurants gastronomiques", "Bistrots de mer"],
+        "formats": ["Caisse vrac"]
+      },
+      "merlu": {
+        "name": "Merlu",
+        "description": "Merlu de Méditerranée, à la chair tendre et légère, idéal pour fritures, cuissons à la vapeur, en sauce ou en brandade.",
+        "tags": ["Poisson blanc", "Polyvalent"],
+        "origin": "Méditerranée",
+        "type": "Frais / Congelé",
+        "usage": ["Restauration collective", "Poissonneries", "Transformation"],
+        "formats": ["Caisse vrac 5–10 kg"]
+      },
+      "tilapia-du-nil": {
+        "name": "Tilapia du Nil",
+        "description": "Tilapia du Nil issu d'aquaculture contrôlée, poisson à la chair douce et neutre, apprécié pour les fritures, poêlées et préparations épicées.",
+        "tags": ["Aquaculture", "Poisson économique"],
+        "origin": "Élevage contrôlé",
+        "type": "Frais / Congelé",
+        "usage": ["Restaurants", "Restauration rapide", "Poissonneries"],
+        "formats": ["Caisse vrac", "Sachets selon grammage"]
+      },
+      "tilapia-rouge": {
+        "name": "Tilapia rouge",
+        "description": "Tilapia rouge, poisson d'élevage à la chair tendre et moelleuse, idéal pour fritures entières, grillades et plats familiaux.",
+        "tags": ["Aquaculture", "Coloré"],
+        "origin": "Élevage",
+        "type": "Frais / Congelé",
+        "usage": ["Poissonneries", "Restauration familiale"],
+        "formats": ["Caisse vrac", "Conditionnement au poids"]
+      },
+      "filets-de-tilapia": {
+        "name": "Filets de tilapia",
+        "description": "Filets de tilapia désarêtés, prêts à cuire, parfaits pour fritures, panures, plats diététiques et restauration rapide.",
+        "tags": ["Prêt à cuire", "Filets"],
+        "origin": "Élevage",
+        "type": "Congelé",
+        "usage": ["Restaurants", "Restauration rapide", "Collectivités"],
+        "formats": ["Sachets 1 kg", "Cartons 5–10 kg"]
+      },
+      "carpe": {
+        "name": "Carpe",
+        "description": "Carpe d'eau douce, poisson traditionnel à la chair ferme, adapté aux recettes mijotées, grillades et spécialités régionales.",
+        "tags": ["Poisson d'eau douce", "Traditionnel"],
+        "origin": "Élevage / Eau douce",
+        "type": "Frais",
+        "usage": ["Restaurants traditionnels", "Poissonneries"],
+        "formats": ["Caisse vrac"]
+      },
+      "filets-de-carpe": {
+        "name": "Filets de Carpe",
+        "description": "Filets de carpe préparés et désarêtés, pratiques pour une utilisation directe en cuisine, en friture, sauce ou cuisson au four.",
+        "tags": ["Prêt à cuire", "Filets"],
+        "origin": "Élevage / Eau douce",
+        "type": "Frais / Congelé",
+        "usage": ["Restaurants", "Poissonneries", "Traiteurs"],
+        "formats": ["Barquettes sous-vide", "Sachets congélation"]
+      },
+      "sole": {
+        "name": "Sole",
+        "description": "Sole de Méditerranée, poisson plat à la chair fine et délicate, incontournable pour les cartes gastronomiques.",
+        "tags": ["Poisson plat", "Gastronomie"],
+        "origin": "Méditerranée",
+        "type": "Frais",
+        "usage": ["Restaurants gastronomiques", "Hôtels", "Poissonneries premium"],
+        "formats": ["Caisse vrac", "Calibrée HORECA"]
+      },
+      "mulet": {
+        "name": "Mulet",
+        "description": "Mulet de Méditerranée, poisson à la chair savoureuse souvent utilisé pour grillades, tajines et préparation de boutargue.",
+        "tags": ["Poisson traditionnel", "Pour boutargue"],
+        "origin": "Méditerranée",
+        "type": "Frais",
+        "usage": ["Poissonneries", "Restaurants", "Transformation en boutargue"],
+        "formats": ["Caisse vrac"]
+      },
+      "filets-de-saumon-avec-peau": {
+        "name": "Filets de saumon (avec peau)",
+        "description": "Filets de saumon Atlantique avec peau, riches en oméga-3, parfaits pour grillades, cuisson au four ou plancha.",
+        "tags": ["Filets", "Oméga-3", "Premium"],
+        "origin": "Norvège / Élevage contrôlé",
+        "type": "Frais / Congelé",
+        "usage": ["Restaurants", "Hôtels", "Distribution retail"],
+        "formats": ["Filets calibrés", "Cartons 5–10 kg"]
+      },
+      "filets-de-saumon-sans-peau": {
+        "name": "Filets de saumon (sans peau)",
+        "description": "Filets de saumon sans peau, prêts à portionner ou à cuisiner, adaptés aux restaurants, snacking premium et plats préparés.",
+        "tags": ["Prêt à portionner", "Filets"],
+        "origin": "Norvège / Élevage contrôlé",
+        "type": "Congelé",
+        "usage": ["Restauration", "Industrie agroalimentaire", "Traiteurs"],
+        "formats": ["Blocs ou filets sous-vide", "Carton export"]
+      },
+      "tranches-de-saumon-fume": {
+        "name": "Tranches de saumon fumé",
+        "description": "Tranches de saumon fumé délicatement, prêtes à être dressées sur toasts, plateaux traiteur ou buffets froids.",
+        "tags": ["Fumé", "Traiteur", "Premium"],
+        "origin": "Norvège",
+        "type": "Frais / Sous-vide",
+        "usage": ["Traiteurs", "Hôtels", "Événementiel"],
+        "formats": ["Plaques tranchées sous-vide"]
+      },
+      "encornet": {
+        "name": "Encornet",
+        "description": "Encornet (h'bar) tendre et savoureux, idéal pour fritures, farcis, sauces ou préparations à la plancha.",
+        "tags": ["Cuisine méditerranéenne", "Friture"],
+        "origin": "Méditerranée",
+        "type": "Frais / Congelé",
+        "usage": ["Restaurants", "Poissonneries", "Snacking de mer"],
+        "formats": ["Caisse vrac", "Sachets IQF"]
+      },
+      "poulpe": {
+        "name": "Poulpe",
+        "description": "Poulpe de Méditerranée, idéal pour grillades, salades tièdes, tapas et plats traditionnels longuement mijotés.",
+        "tags": ["Tapas", "Grillade", "HORECA"],
+        "origin": "Méditerranée",
+        "type": "Congelé",
+        "usage": ["Restaurants", "Bars à tapas", "Traiteurs"],
+        "formats": ["Vrac IQF", "Pièces entières"]
+      },
+      "calamar-tube-100-300": {
+        "name": "Calamar",
+        "description": "Tubes de calamar calibrés 100/300, parfaitement nettoyés, prêts à être farcis, coupés en anneaux ou poêlés.",
+        "tags": ["Prêt à farcir", "Standardisé"],
+        "origin": "Méditerranée",
+        "type": "Congelé IQF",
+        "usage": ["Restaurants", "Industrie", "Traiteurs"],
+        "formats": ["Cartons 10 kg IQF"]
+      },
+      "langouste": {
+        "name": "Langouste",
+        "description": "Langouste de roche, crustacé d'exception pour plateaux de fruits de mer, menus gastronomiques et événements haut de gamme.",
+        "tags": ["Prestige", "Gastronomie", "Fruits de mer"],
+        "origin": "Méditerranée / Atlantique",
+        "type": "Congelé",
+        "usage": ["Restaurants gastronomiques", "Hôtels de luxe", "Traiteurs événementiels"],
+        "formats": ["Pièce entière congelée", "Carton export"]
+      },
+      "crevette-blanche": {
+        "name": "Crevette Blanche",
+        "description": "Crevette blanche polyvalente, idéale pour grillades, sautés, plats en sauce, paellas ou garnitures de pâtes.",
+        "tags": ["Polyvalente", "HORECA"],
+        "origin": "Méditerranée / Aquaculture",
+        "type": "Congelé",
+        "usage": ["Restaurants", "Restauration rapide", "Traiteurs"],
+        "formats": ["Vrac IQF", "Sachets 1–2 kg"]
+      },
+      "chevrette": {
+        "name": "Chevrette",
+        "description": "Chevrette (caramote) locale, à la saveur fine et sucrée, très appréciée pour les fritures, grillades et plats méditerranéens.",
+        "tags": ["Locale", "Frais", "Gastronomie"],
+        "origin": "Tunisie / Méditerranée",
+        "type": "Frais / Congelé",
+        "usage": ["Bistrots de mer", "Restaurants", "Épiceries fines"],
+        "formats": ["Vrac", "Barquette"]
+      },
+      "crabe-bleu-decoupe": {
+        "name": "Crab Bleu (Découpé)",
+        "description": "Crabe bleu découpé, à la chair parfumée, idéal pour bisques, sauces, pâtes, paellas et buffets de fruits de mer.",
+        "tags": ["Crabe bleu", "Cuisine créative"],
+        "origin": "Méditerranée",
+        "type": "Congelé",
+        "usage": ["Restaurants", "Traiteurs", "Cuisine fusion"],
+        "formats": ["Sachets 1 kg", "Cartons 5–10 kg"]
+      },
+      "crevette-rouge": {
+        "name": "Crevette Rouge",
+        "description": "Crevette rouge de profondeur, très recherchée pour sa couleur vive et sa chair fine, parfaite pour plats signatures et dressages raffinés.",
+        "tags": ["Premium", "Profondeur", "Gastronomie"],
+        "origin": "Méditerranée",
+        "type": "Frais / Congelé",
+        "usage": ["Restaurants gastronomiques", "Bars à tapas haut de gamme"],
+        "formats": ["Vrac IQF", "Cartons export"]
+      },
+      "mixte-fruits-de-mer": {
+        "name": "Mixte fruits de mer",
+        "description": "Mélange de fruits de mer prêt à l'emploi, idéal pour paellas, risottos, pizzas, pâtes et woks de la mer.",
+        "tags": ["Mixte", "Prêt à cuisiner"],
+        "origin": "Sélection Méditerranée / Atlantique",
+        "type": "Congelé",
+        "usage": ["Restauration rapide", "Collectivités", "Traiteurs"],
+        "formats": ["Sachets 1–2,5 kg", "Cartons 10 kg"]
+      },
+      "caviar-beluga": {
+        "name": "Caviar Beluga",
+        "description": "Caviar Beluga, perles larges et fondantes, produit d'exception pour tables gastronomiques, réceptions VIP et accords mets & champagne.",
+        "tags": ["Luxe", "Ultra-premium", "Gastronomie"],
+        "origin": "Élevage contrôlé",
+        "type": "Frais",
+        "usage": ["Restaurants étoilés", "Hôtels de luxe", "Événementiel haut de gamme"],
+        "formats": ["Boîtes 30 g", "50 g", "100 g", "250 g"]
+      },
+      "caviar-impérial": {
+        "name": "Caviar Impérial",
+        "description": "Caviar Impérial, grains équilibrés et aromatiques, idéal pour room service, plateaux premium et dégustations raffinées.",
+        "tags": ["Premium", "Luxe"],
+        "origin": "Élevage contrôlé",
+        "type": "Frais",
+        "usage": ["Hôtels", "Épiceries fines", "Traiteurs de prestige"],
+        "formats": ["Boîtes 30 g", "50 g", "100 g"]
+      },
+      "caviar-osetra": {
+        "name": "Caviar Osetra",
+        "description": "Caviar Osetra, grains dorés à ambrés, aux notes de noisette, parfait pour les cartes gastronomiques et accords mets & vodka.",
+        "tags": ["Luxe", "Haute gastronomie"],
+        "origin": "Élevage contrôlé",
+        "type": "Frais",
+        "usage": ["Restaurants gastronomiques", "Bars à caviar", "Événements privés"],
+        "formats": ["Boîtes 30 g", "50 g", "100 g"]
+      },
+      "boutargue-poudre": {
+        "name": "Boutargue en poudre",
+        "description": "Boutargue de mulet finement moulue, issue de poches d’œufs séchées et affinée. Condiment d’exception au goût marin intense, idéale pour sublimer pâtes, risottos, œufs, salades et créations gastronomiques.",
+        "tags": ["Poudre", "Produit premium", "Gastronomie"],
+        "origin": "Méditerranée",
+        "type": "Sec",
+        "usage": ["Restaurants gastronomiques", "Épiceries fines", "Traiteurs"],
+        "formats": ["Pot 50g", "Pot 100g"]
+      },
+      "boutargue-congelee": {
+        "name": "Boutargue congelée",
+        "description": "Boutargue congelée, idéale pour le stockage longue durée tout en préservant la qualité, la texture et le potentiel aromatique.",
+        "tags": ["Congelé", "Stockage longue durée"],
+        "origin": "Méditerranée",
+        "type": "Congelé",
+        "usage": ["Grossistes", "Export", "Industrie agroalimentaire"],
+        "formats": ["Pièce entière sous-vide", "Cartons export"]
+      },
+      "boutargue-sechee": {
+        "name": "Boutargue séchée",
+        "description": "Boutargue séchée traditionnelle, affinée pour une saveur intense et saline, parfaite râpée sur pâtes, risottos ou servie en fines tranches.",
+        "tags": ["Séché", "Produit premium", "Artisanal"],
+        "origin": "Méditerranée",
+        "type": "Sec",
+        "usage": ["Restaurants gastronomiques", "Épiceries fines", "Bars à vin"],
+        "formats": ["Pièce entière", "Tranchée sous-vide"]
+      },
+      "boutargue-calmar": {
+        "name": "Boutargue de calmar",
+        "description": "Boutargue de calmar séchée, délicatement salée et affinée pour offrir une texture fondante et une saveur marine intense. Parfaite râpée sur pâtes, risottos, œufs ou dégustée en fines tranches.",
+        "tags": ["Séché", "Produit premium", "Gastronomie"],
+        "origin": "Méditerranée",
+        "type": "Sec",
+        "usage": ["Restaurants gastronomiques", "Épiceries fines"],
+        "formats": ["Pièce entière", "Tranchée sous-vide"]
+      },
+      "crevette-blanche-sans-tete": {
+        "name": "Crevette Blanche (Sans tête)",
+        "description": "Crevette blanche préparée sans tête, pratique et régulière, idéale pour wok, sautés, plats mijotés, buffets et restauration rapide.",
+        "tags": ["Sans tête", "Pratique", "Standardisée"],
+        "origin": "Aquaculture contrôlée",
+        "type": "Congelé",
+        "usage": ["Restauration", "Cuisine asiatique", "Plats préparés"],
+        "formats": ["Blocs surgelés", "Sachets 1–2 kg"]
+      }
+    },
+    "ui": {
+      "heroTitle": "Seafood — Découvrez",
+      "heroHighlight": "Crevettes, Langoustes,",
+      "heroSubtitle": "Poissons & bien plus.",
+      "heroCatalog": "Catalogue 2024-2025",
+      "heroDescription": "Notre mission est de fournir des produits de la mer durables et de la meilleure qualité. C'est pourquoi toute notre sélection provient de pêcheurs qui, comme nous, s'engagent pour une consommation responsable et la protection de nos océans.",
+      "heroApprovedBy": "Approuvé par",
+      "heroChefs": "+50 Chefs",
+      "filterCategories": "Catégories",
+      "filterAllCategories": "Toutes les catégories",
+      "filterSortBy": "Trier par",
+      "filterSortName": "Nom (A-Z)",
+      "filterSortCategory": "Catégorie",
+      "filterReset": "Réinitialiser les filtres",
+      "searchPlaceholder": "Rechercher des produits...",
+      "searchNoResults": "Aucun produit trouvé",
+      "searchNoResultsDesc": "Nous ne trouvons pas de produits correspondant à vos critères.",
+      "viewCatalog": "Voir le catalogue complet",
+      "discoverPremium": "Découvrez nos",
+      "productsCount": "produits",
+      "resultsTitle": "Résultats de recherche",
+      "viewProduct": "Voir produit",
+      "requestQuote": "Devis",
+      "whatsappQuote": "Devis WhatsApp",
+      "contact": "Contacter",
+      "origin": "Origine",
+      "type": "Type",
+      "recommendedUsage": "Usage recommandé",
+      "packaging": "Conditionnements",
+      "availableVariants": "Variantes disponibles",
+      "size": "Taille",
+      "caliber": "Calibre",
+      "pieces": "pièces",
+      "grade": "Grade",
+      "discoverMore": "Découvrir plus",
+      "similar": "Similaires",
+      "viewAll": "Voir tout",
+      "all": "Tout",
+      "products": "Produits",
+      "backToProducts": "Produits",
+      "detailedView": "Vue détaillée de"
+    }
+  }
+}

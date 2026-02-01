@@ -1,6 +1,7 @@
 "use client"
 
-import Link from "next/link"
+import { useTranslations } from 'next-intl'
+import { Link } from "@/i18n/navigation"
 import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -14,6 +15,8 @@ const socialLinks = [
 ]
 
 export function ContactPreview() {
+  const t = useTranslations('contact')
+
   return (
     <section className="py-14 sm:py-16 md:py-24 lg:py-28 bg-tafc-bg-light">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -35,7 +38,7 @@ export function ContactPreview() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localisation TAFC - Tunisie & Algérie"
+                  title={t('mapTitle')}
                 />
               </div>
             </Card>
@@ -49,13 +52,12 @@ export function ContactPreview() {
             transition={{ duration: 0.6 }}
             className="flex flex-col justify-center"
           >
-            <p className="text-[10px] sm:text-xs text-tafc-blue-medium uppercase tracking-wider font-semibold mb-2 sm:mb-3">Contact</p>
+            <p className="text-[10px] sm:text-xs text-tafc-blue-medium uppercase tracking-wider font-semibold mb-2 sm:mb-3">{t('badge')}</p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-tafc-text-primary mb-3 sm:mb-4">
-              Parlons de vos besoins en produits de la mer
+              {t('title')}
             </h2>
             <p className="text-sm sm:text-base text-tafc-text-secondary mb-6 sm:mb-8 leading-relaxed">
-              Dites-nous quel type d&apos;établissement vous êtes, vos volumes, vos fréquences de livraison… Notre
-              équipe vous accompagne dans la définition de votre approvisionnement.
+              {t('description')}
             </p>
 
             <div className="space-y-4 mb-8">
@@ -78,7 +80,7 @@ export function ContactPreview() {
                 <div className="w-10 h-10 rounded-xl bg-tafc-blue-light/10 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5 text-tafc-blue-medium" />
                 </div>
-                <span className="text-tafc-text-primary">Basé en Tunisie & Algérie</span>
+                <span className="text-tafc-text-primary">{t('location')}</span>
               </div>
             </div>
 
@@ -88,7 +90,7 @@ export function ContactPreview() {
                 size="lg"
                 className="bg-tafc-coral hover:bg-tafc-coral-dark text-white font-semibold px-8 transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
-                <Link href="/contact">Prendre contact avec l&apos;équipe</Link>
+                <Link href="/contact">{t('cta')}</Link>
               </Button>
 
               <div className="flex gap-3">

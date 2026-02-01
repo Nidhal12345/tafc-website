@@ -1,13 +1,6 @@
-import { BestSellers } from "@/components/sections/best-sellers"
-
 export interface ProductVariant {
-  size?: string
-  caliber?: string
-  preparation?: string
-  origin?: string
-  pieces?: string
-  type?: string
-  grade?: string
+  kind: string
+  value: string
 }
 
 export interface Product {
@@ -29,6 +22,84 @@ export interface Product {
   note?: string
   isBestSeller?: boolean
   priceIndicatif?: string
+}
+
+// Translation types for products
+export interface ProductTranslation {
+  name: string
+  description: string
+  tags: string[]
+  origin: string
+  type: string
+  usage: string[]
+  formats: string[]
+}
+
+export interface CategoryTranslation {
+  name: string
+  description: string
+}
+
+export interface ProductsDataTranslations {
+  categories: Record<string, CategoryTranslation>
+  products: Record<string, ProductTranslation>
+  ui: Record<string, string>
+}
+
+// Translated product type (product merged with translations)
+export interface TranslatedProduct extends Omit<Product, 'name' | 'description' | 'tags' | 'origin' | 'type' | 'usage' | 'formats' | 'category'> {
+  name: string
+  description: string
+  tags: string[]
+  origin: string
+  type: string
+  usage: string[]
+  formats: string[]
+  category: string
+}
+
+// Helper function to get a translated product
+export function getTranslatedProduct(
+  product: Product,
+  translations: ProductsDataTranslations
+): TranslatedProduct {
+  const productTranslation = translations.products[product.slug]
+  const categoryTranslation = translations.categories[product.categorySlug]
+
+  if (!productTranslation) {
+    // Fallback to original product data if no translation found
+    return product as TranslatedProduct
+  }
+
+  return {
+    ...product,
+    name: productTranslation.name || product.name,
+    description: productTranslation.description || product.description,
+    tags: productTranslation.tags || product.tags,
+    origin: productTranslation.origin || product.origin,
+    type: productTranslation.type || product.type,
+    usage: productTranslation.usage || product.usage,
+    formats: productTranslation.formats || product.formats,
+    category: categoryTranslation?.name || product.category,
+  }
+}
+
+// Helper function to get all translated products
+export function getTranslatedProducts(
+  productsList: Product[],
+  translations: ProductsDataTranslations
+): TranslatedProduct[] {
+  return productsList.map(product => getTranslatedProduct(product, translations))
+}
+
+// Helper function to get translated categories
+export function getTranslatedCategories(
+  translations: ProductsDataTranslations
+): Array<{ slug: string; name: string; icon: string }> {
+  return categories.map(cat => ({
+    ...cat,
+    name: translations.categories[cat.slug]?.name || cat.name,
+  }))
 }
 
 export const categories = [
@@ -60,7 +131,7 @@ export const products = [
     type: "Frais / Congelé",
     usage: ["Restaurants gastronomiques", "Hôtels", "Traiteurs haut de gamme"],
     formats: ["Poisson entier", "Tronçons sur commande"],
-    variants: [{ size: "G" }, { size: "M" }]
+    variants: [{ kind: "size", value: "G" }, { kind: "size", value: "M" }]
   },
   {
     id: "2",
@@ -77,7 +148,7 @@ export const products = [
     type: "Frais / Congelé",
     usage: ["Restaurants de spécialités", "Hôtels", "Poissonneries haut de gamme"],
     formats: ["Entier en caisse glacée", "Tronçonné sur demande"],
-    variants: [{ size: "G" }, { size: "M" }]
+    variants: [{ kind: "size", value: "G" }, { kind: "size", value: "M" }]
   },
   {
     id: "3",
@@ -94,7 +165,7 @@ export const products = [
     type: "Frais",
     usage: ["Poissonneries", "Restaurants", "Cuisine familiale"],
     formats: ["Caisse vrac", "Conditionnement export"],
-    variants: [{ size: "G" }, { size: "M" }]
+    variants: [{ kind: "size", value: "G" }, { kind: "size", value: "M" }]
   },
   {
     id: "5",
@@ -111,7 +182,7 @@ export const products = [
     type: "Frais",
     usage: ["Restaurants", "Hôtels", "Poissonneries"],
     formats: ["Entière en caisse glacée"],
-    variants: [{ size: "G" }, { size: "P" }]
+    variants: [{ kind: "size", value: "G" }, { kind: "size", value: "P" }]
   },
   {
     id: "7",
@@ -128,7 +199,7 @@ export const products = [
     type: "Frais",
     usage: ["Restaurants", "Poissonneries", "Cuisine familiale"],
     formats: ["Caisse vrac", "Conditionnement HORECA"],
-    variants: [{ size: "P" }, { size: "G" }]
+    variants: [{ kind: "size", value: "P" }, { kind: "size", value: "G" }]
   },
   {
     id: "8",
@@ -145,7 +216,7 @@ export const products = [
     type: "Frais",
     usage: ["Restaurants gastronomiques", "Bistrots de mer"],
     formats: ["Caisse vrac"],
-    variants: [{}],
+    variants: [],
     isBestSeller: true
   },
   {
@@ -163,7 +234,7 @@ export const products = [
     type: "Frais / Congelé",
     usage: ["Restauration collective", "Poissonneries", "Transformation"],
     formats: ["Caisse vrac 5–10 kg"],
-    variants: [{ size: "M" }, { size: "G" }]
+    variants: [{ kind: "size", value: "M" }, { kind: "size", value: "G" }]
   },
   {
     id: "10",
@@ -180,7 +251,7 @@ export const products = [
     type: "Frais / Congelé",
     usage: ["Restaurants", "Restauration rapide", "Poissonneries"],
     formats: ["Caisse vrac", "Sachets selon grammage"],
-    variants: [{}]
+    variants: []
   },
   {
     id: "11",
@@ -197,7 +268,7 @@ export const products = [
     type: "Frais / Congelé",
     usage: ["Poissonneries", "Restauration familiale"],
     formats: ["Caisse vrac", "Conditionnement au poids"],
-    variants: [{}]
+    variants: []
   },
   {
     id: "12",
@@ -208,13 +279,14 @@ export const products = [
     categorySlug: "poissons-mediterranee",
     description:
       "Filets de tilapia désarêtés, prêts à cuire, parfaits pour fritures, panures, plats diététiques et restauration rapide.",
-    image: "/products/Filets_de_tilapia.jpg",
+    image: "/products/tilapia-fillet.jpg",
     tags: ["Prêt à cuire", "Filets"],
     origin: "Élevage",
     type: "Congelé",
     usage: ["Restaurants", "Restauration rapide", "Collectivités"],
     formats: ["Sachets 1 kg", "Cartons 5–10 kg"],
-    variants: [{}]
+    variants: [],
+    isBestSeller: true
   },
   {
     id: "13",
@@ -231,7 +303,7 @@ export const products = [
     type: "Frais",
     usage: ["Restaurants traditionnels", "Poissonneries"],
     formats: ["Caisse vrac"],
-    variants: [{ size: "M" }, { size: "G" }]
+    variants: [{ kind: "size", value: "M" }, { kind: "size", value: "G" }]
   },
   {
     id: "14",
@@ -248,7 +320,7 @@ export const products = [
     type: "Frais / Congelé",
     usage: ["Restaurants", "Poissonneries", "Traiteurs"],
     formats: ["Barquettes sous-vide", "Sachets congélation"],
-    variants: [{}]
+    variants: []
   },
   {
     id: "15",
@@ -265,7 +337,7 @@ export const products = [
     type: "Frais",
     usage: ["Restaurants gastronomiques", "Hôtels", "Poissonneries premium"],
     formats: ["Caisse vrac", "Calibrée HORECA"],
-    variants: [{ size: "M" }, { size: "G" }]
+    variants: [{ kind: "size", value: "M" }, { kind: "size", value: "G" }]
   },
   {
     id: "16",
@@ -282,7 +354,7 @@ export const products = [
     type: "Frais",
     usage: ["Poissonneries", "Restaurants", "Transformation en boutargue"],
     formats: ["Caisse vrac"],
-    variants: [{ size: "M" }]
+    variants: [{ kind: "size", value: "M" }]
 
   },
 
@@ -304,7 +376,7 @@ export const products = [
     type: "Frais / Congelé",
     usage: ["Restaurants", "Hôtels", "Distribution retail"],
     formats: ["Filets calibrés", "Cartons 5–10 kg"],
-    variants: [{ preparation: "Avec peau" }]
+    variants: [{ kind: "preparation", value: "Avec peau" }]
   },
   {
     id: "20",
@@ -321,7 +393,7 @@ export const products = [
     type: "Congelé",
     usage: ["Restauration", "Industrie agroalimentaire", "Traiteurs"],
     formats: ["Blocs ou filets sous-vide", "Carton export"],
-    variants: [{ preparation: "Sans peau" }]
+    variants: [{ kind: "preparation", value: "Sans peau" }]
   },
   {
     id: "21",
@@ -338,7 +410,7 @@ export const products = [
     type: "Frais / Sous-vide",
     usage: ["Traiteurs", "Hôtels", "Événementiel"],
     formats: ["Plaques tranchées sous-vide"],
-    variants: [{}],
+    variants: [],
     isBestSeller: true
   },
 
@@ -360,7 +432,7 @@ export const products = [
     type: "Frais / Congelé",
     usage: ["Restaurants", "Poissonneries", "Snacking de mer"],
     formats: ["Caisse vrac", "Sachets IQF"],
-    variants: [{}]
+    variants: []
   },
   {
     id: "23",
@@ -378,10 +450,10 @@ export const products = [
     usage: ["Restaurants", "Bars à tapas", "Traiteurs"],
     formats: ["Vrac IQF", "Pièces entières"],
     variants: [
-      { type: "Vrac" },
-      { size: "G" },
-      { size: "GG" },
-      { preparation: "Découpée" }
+      { kind: "type", value: "Vrac" },
+      { kind: "size", value: "G" },
+      { kind: "size", value: "GG" },
+      { kind: "preparation", value: "Découpée" }
     ]
   },
   {
@@ -399,7 +471,7 @@ export const products = [
     type: "Congelé IQF",
     usage: ["Restaurants", "Industrie", "Traiteurs"],
     formats: ["Cartons 10 kg IQF"],
-    variants: [{ caliber: "100/300" }]
+    variants: [{ kind: "caliber", value: "100/300" }]
   },
 
   // =========================
@@ -420,7 +492,7 @@ export const products = [
     type: "Congelé",
     usage: ["Restaurants gastronomiques", "Hôtels de luxe", "Traiteurs événementiels"],
     formats: ["Pièce entière congelée", "Carton export"],
-    variants: [{}]
+    variants: []
   },
   {
     id: "29",
@@ -438,9 +510,9 @@ export const products = [
     usage: ["Restaurants", "Restauration rapide", "Traiteurs"],
     formats: ["Vrac IQF", "Sachets 1–2 kg"],
     variants: [
-      { pieces: "60p" },
-      { preparation: "Décortiquée" },
-      { type: "Vrac" }
+      { kind: "pieces", value: "60p" },
+      { kind: "preparation", value: "Décortiquée" },
+      { kind: "type", value: "Vrac" }
     ]
   },
   {
@@ -458,7 +530,7 @@ export const products = [
     type: "Frais / Congelé",
     usage: ["Bistrots de mer", "Restaurants", "Épiceries fines"],
     formats: ["Vrac", "Barquette"],
-    variants: [{ preparation: "Entière" }, { preparation: "Décortiquée" }],
+    variants: [{ kind: "preparation", value: "Entière" }, { kind: "preparation", value: "Décortiquée" }],
     isBestSeller: false
 
   },
@@ -477,7 +549,7 @@ export const products = [
     type: "Congelé",
     usage: ["Restaurants", "Traiteurs", "Cuisine fusion"],
     formats: ["Sachets 1 kg", "Cartons 5–10 kg"],
-    variants: [{ preparation: "Découpé" }]
+    variants: [{ kind: "preparation", value: "Découpé" }]
   },
   {
     id: "32",
@@ -488,17 +560,17 @@ export const products = [
     categorySlug: "crevettes-crustaces",
     description:
       "Crevette rouge de profondeur, très recherchée pour sa couleur vive et sa chair fine, parfaite pour plats signatures et dressages raffinés.",
-    image: "/products/crevettes-rouges-entieres.jpg",
+    image: "/products/red-shrimp.jpg",
     tags: ["Premium", "Profondeur", "Gastronomie"],
     origin: "Méditerranée",
     type: "Frais / Congelé",
     usage: ["Restaurants gastronomiques", "Bars à tapas haut de gamme"],
     formats: ["Vrac IQF", "Cartons export"],
     variants: [
-      { pieces: "15" },
-      { pieces: "50" },
-      { pieces: "10" },
-      { preparation: "Sans tête" }
+      { kind: "pieces", value: "15" },
+      { kind: "pieces", value: "50" },
+      { kind: "pieces", value: "10" },
+      { kind: "preparation", value: "Sans tête" }
     ]
   },
 
@@ -581,24 +653,28 @@ export const products = [
     isBestSeller: false
   },
   {
-    id: "37",
-    slug: "boutargue-fraiche",
-    name: "Boutargue fraîche",
-    latinName: "Mugil cephalus",
-    category: "Caviar & haute gastronomie",
-    categorySlug: "oeufs-de-poisson-boutargue",
-    description:
-      "Boutargue fraîche de mulet, œufs entiers prêts à être transformés, idéale pour artisans, chefs et fabricants de boutargue maison.",
-    image: "/products/bottarga_fresh.jpg",
-    tags: ["Frais", "Artisanal", "Gastronomie"],
-    origin: "Méditerranée",
-    type: "Frais",
-    usage: ["Restaurants", "Artisans boutargue", "Épiceries fines"],
-    formats: ["Pièce entière", "Barquettes réfrigérées"],
-    variants: [],
-    isBestSeller: false
-  },
-  {
+  id: "37",
+  slug: "boutargue-poudre",
+  name: "Boutargue en poudre",
+  latinName: "Mugil cephalus",
+  category: "Caviar & haute gastronomie",
+  categorySlug: "oeufs-de-poisson-boutargue",
+  description:
+    "Boutargue de mulet finement moulue, issue de poches d’œufs séchées et affinées. Condiment d’exception au goût marin intense, idéale pour sublimer pâtes, risottos, œufs, salades et créations gastronomiques.",
+  image: "/products/50g.jpg",
+  tags: ["Poudre", "Produit premium", "Gastronomie"],
+  origin: "Méditerranée",
+  type: "Sec",
+  usage: ["Restaurants gastronomiques", "Épiceries fines", "Traiteurs"],
+  formats: ["Pot 50g", "Pot 100g"],
+  variants: [
+    { kind: "size", value: "50g" },
+      { kind: "size", value: "100g" },
+      { kind: "size", value: "250g" }
+  ],
+  isBestSeller: false
+},
+{
     id: "38",
     slug: "boutargue-congelee",
     name: "Boutargue congelée",
@@ -607,14 +683,14 @@ export const products = [
     categorySlug: "oeufs-de-poisson-boutargue",
     description:
       "Boutargue congelée, idéale pour le stockage longue durée tout en préservant la qualité, la texture et le potentiel aromatique.",
-    image: "/products/bottarga_congelée.jpg",
+    image: "/products/bottarga-frozen.jpg",
     tags: ["Congelé", "Stockage longue durée"],
     origin: "Méditerranée",
     type: "Congelé",
     usage: ["Grossistes", "Export", "Industrie agroalimentaire"],
     formats: ["Pièce entière sous-vide", "Cartons export"],
     variants: [],
-    isBestSeller: true
+    isBestSeller: false
   },
   {
     id: "39",
@@ -625,13 +701,15 @@ export const products = [
     categorySlug: "oeufs-de-poisson-boutargue",
     description:
       "Boutargue séchée traditionnelle, affinée pour une saveur intense et saline, parfaite râpée sur pâtes, risottos ou servie en fines tranches.",
-    image: "/products/boutargue_sechee.jpg",
+    image: "/products/dried-bouttarga.jpg",
     tags: ["Séché", "Produit premium", "Artisanal"],
     origin: "Méditerranée",
     type: "Sec",
-    usage: ["Restaurants gastronomiques", "Épiceries fines", "Bars à vin"],
+    usage: ["Restaurants gastronomiques", "Épiceries fines"],
     formats: ["Pièce entière", "Tranchée sous-vide"],
-    variants: [],
+    variants: [
+      { kind: "size", value: "1kg" },
+    ],
     isBestSeller: true
   },
   {
@@ -650,12 +728,57 @@ export const products = [
     usage: ["Restauration", "Cuisine asiatique", "Plats préparés"],
     formats: ["Blocs surgelés", "Sachets 1–2 kg"],
     variants: [
-      { size: "30/40" },
-      { size: "40/50" },
-      { size: "50/60" }
+      { kind: "size", value: "30/40" },
+      { kind: "size", value: "40/50" },
+      { kind: "size", value: "50/60" }
     ]
-  }
+  },
+  {
+  id: "41",
+  slug: "boutargue-calmar",
+  name: "Boutargue de calmar",
+  latinName: "Loligo vulgaris",
+  category: "Caviar & haute gastronomie",
+  categorySlug: "oeufs-de-poisson-boutargue",
+  description:
+    "Boutargue de calmar séchée, délicatement salée et affinée pour offrir une texture fondante et une saveur marine intense. Parfaite râpée sur pâtes, risottos, œufs ou dégustée en fines tranches.",
+  image: "/products/squid_eggs.jpg",
+  tags: ["Séché", "Produit premium", "Gastronomie"],
+  origin: "Méditerranée",
+  type: "Sec",
+  usage: ["Restaurants gastronomiques", "Épiceries fines"],
+  formats: ["Pièce entière", "Tranchée sous-vide"],
+  variants: [
+    { kind: "size", value: "500g" },
+      { kind: "size", value: "1kg" }
+  ],
+  isBestSeller: true
+},
+{
+  id: "42",
+  slug: "crevette-rose",
+  name: "Crevette Rose",
+  latinName: "Parapenaeus longirostris",
+  category: "Crevettes & crustacés",
+  categorySlug: "crevettes-crustaces",
+  description:
+    "Crevette rose de Méditerranée, appréciée pour sa chair tendre et savoureuse. Polyvalente en cuisine, idéale pour plats chauds, salades, pâtes et préparations gastronomiques.",
+  image: "/products/crevette_rose.png",
+  tags: ["Frais", "Polyvalent", "Gastronomie"],
+  origin: "Méditerranée",
+  type: "Frais / Congelé",
+  usage: ["Restaurants", "Traiteurs", "Poissonneries"],
+  formats: ["Vrac IQF", "Cartons export"],
+  variants: [
+    { kind: "caliber", value: "10/20" },
+    { kind: "caliber", value: "20/30" },
+    { kind: "preparation", value: "Entière" },
+    { kind: "preparation", value: "Décortiquée" }
+  ]
+}
 ];
+
+
 
 
 

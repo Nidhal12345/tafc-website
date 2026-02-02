@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, ReactNode } from "react"
+import { createContext, useContext, useState, useEffect, ReactNode, Suspense } from "react"
 import { usePathname, useSearchParams } from "next/navigation"
 import { AppLoadingScreen } from "./loading"
 
@@ -20,7 +20,8 @@ export function useLoading() {
     return context
 }
 
-export function LoadingProvider({ children }: { children: ReactNode }) {
+// Inner component that uses useSearchParams (must be wrapped in Suspense)
+function LoadingProviderInner({ children }: { children: ReactNode }) {
     const [isLoading, setIsLoading] = useState(true) // Start true for initial load
     const pathname = usePathname()
     const searchParams = useSearchParams()
@@ -54,3 +55,13 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
         </LoadingContext.Provider>
     )
 }
+
+// Wrapper component with Suspense boundary for useSearchParams
+export function LoadingProvider({ children }: { children: ReactNode }) {
+    return (
+        <Suspense fallback={<AppLoadingScreen />}>
+            <LoadingProviderInner>{children}</LoadingProviderInner>
+        </Suspense>
+    )
+}
+

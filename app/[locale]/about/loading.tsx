@@ -1,10 +1,19 @@
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-
 export default function AboutLoading() {
     return (
         <>
-            <Header />
+            {/* Simple Header Skeleton */}
+            <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-white/80 backdrop-blur-lg border-b border-slate-200/50">
+                <div className="container mx-auto px-6 h-full flex items-center justify-between">
+                    <div className="w-32 h-10 bg-slate-200 rounded animate-pulse" />
+                    <div className="hidden md:flex gap-6">
+                        {[1, 2, 3, 4].map((i) => (
+                            <div key={i} className="w-16 h-4 bg-slate-200 rounded animate-pulse" />
+                        ))}
+                    </div>
+                    <div className="w-24 h-10 bg-slate-200 rounded-full animate-pulse" />
+                </div>
+            </header>
+
             <main className="bg-white min-h-screen">
                 {/* Hero Skeleton */}
                 <section className="relative h-[85vh] md:h-[95vh] w-full overflow-hidden flex items-center justify-center bg-[#0a192f]">
@@ -66,7 +75,24 @@ export default function AboutLoading() {
                     </section>
                 </div>
             </main>
-            <Footer />
+
+            {/* Simple Footer Skeleton */}
+            <footer className="bg-[#042635] py-16">
+                <div className="container mx-auto px-6">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        {[1, 2, 3, 4].map((i) => (
+                            <div key={i} className="space-y-4">
+                                <div className="w-24 h-6 bg-white/10 rounded animate-pulse" />
+                                <div className="space-y-2">
+                                    {[1, 2, 3].map((j) => (
+                                        <div key={j} className="w-full h-4 bg-white/5 rounded animate-pulse" />
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </footer>
         </>
     )
 }

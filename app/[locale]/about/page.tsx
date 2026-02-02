@@ -1,8 +1,9 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform, useMotionValue } from "framer-motion"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { Button } from "@/components/ui/button"
@@ -39,8 +40,19 @@ const heroTextVariant = {
 
 export default function AboutPage() {
   const t = useTranslations('aboutPage')
+  const [isMounted, setIsMounted] = useState(false)
+
+  // Default motion value for SSR
+  const defaultY = useMotionValue(0)
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 150]);
+  const scrollBasedY = useTransform(scrollY, [0, 500], [0, 150]);
+
+  // Only use scroll-based transform after mounting (client-side)
+  const y1 = isMounted ? scrollBasedY : defaultY;
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   return (
     <>

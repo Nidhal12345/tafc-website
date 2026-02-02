@@ -72,13 +72,7 @@ export default function ContactPage() {
 
                 {/* Modern Hero Section */}
                 <section className="relative h-[40vh] min-h-[350px] flex items-end pb-16 overflow-hidden bg-[#020c1b]">
-                    {/* Background Image */}
-                    <img
-                        src="/site_support_12.jpg"
-                        alt=""
-                        className="absolute inset-0 w-full h-full object-cover z-0"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#0a192f]/70 to-[#020c1b]/90 z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#0a192f] to-[#020c1b] z-10" />
                     {/* Abstract Background Shapes */}
                     <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#22C5C5]/5 rounded-full blur-3xl opacity-60 z-[5]" />
                     <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-[#5865f2]/5 rounded-full blur-3xl opacity-60 z-[5]" />

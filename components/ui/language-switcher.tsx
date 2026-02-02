@@ -53,16 +53,16 @@ export function LanguageSwitcher() {
             <Button
                 variant="ghost"
                 size="sm"
-                className="h-10 px-3 flex items-center gap-2 rounded-full border border-slate-200 bg-white/50 backdrop-blur-sm hover:bg-white hover:border-slate-300 transition-all duration-300 text-slate-700"
+                className="h-8 md:h-10 px-2 md:px-3 flex items-center gap-1.5 md:gap-2 rounded-full border border-slate-200 bg-white/50 backdrop-blur-sm hover:bg-white hover:border-slate-300 transition-all duration-300 text-slate-700"
             >
-                <div className="w-5 h-5 rounded-full overflow-hidden flex items-center justify-center bg-slate-100 shadow-sm border border-slate-100">
+                <div className="w-4 h-4 md:w-5 md:h-5 rounded-full overflow-hidden flex items-center justify-center bg-slate-100 shadow-sm border border-slate-100">
                     {/* Default fallback if unmounted, or just empty space to reduce layout shift */}
                     <span className="opacity-0">..</span>
                 </div>
-                <span className="font-semibold text-xs tracking-wide">
+                <span className="font-semibold text-[10px] md:text-xs tracking-wide">
                     {getShortCode(locale)}
                 </span>
-                <ChevronDown className="w-3 h-3 opacity-50" />
+                <ChevronDown className="w-2.5 h-2.5 md:w-3 md:h-3 opacity-50" />
             </Button>
         )
     }
@@ -73,15 +73,15 @@ export function LanguageSwitcher() {
                 <Button
                     variant="ghost"
                     size="sm"
-                    className="h-10 px-3 flex items-center gap-2 rounded-full border border-slate-200 bg-white/50 backdrop-blur-sm hover:bg-white hover:border-slate-300 transition-all duration-300 text-slate-700 outline-none ring-0 focus-visible:ring-2 focus-visible:ring-tafc-gold/20"
+                    className="h-8 md:h-10 px-2 md:px-3 flex items-center gap-1.5 md:gap-2 rounded-full border border-slate-200 bg-white/50 backdrop-blur-sm hover:bg-white hover:border-slate-300 transition-all duration-300 text-slate-700 outline-none ring-0 focus-visible:ring-2 focus-visible:ring-tafc-gold/20"
                 >
-                    <div className="w-5 h-5 rounded-full overflow-hidden flex items-center justify-center shadow-sm border border-slate-100 relative">
+                    <div className="w-4 h-4 md:w-5 md:h-5 rounded-full overflow-hidden flex items-center justify-center shadow-sm border border-slate-100 relative">
                         <CurrentFlag className="w-full h-full object-cover" />
                     </div>
-                    <span className="font-semibold text-xs tracking-wide">
+                    <span className="font-semibold text-[10px] md:text-xs tracking-wide">
                         {getShortCode(locale)}
                     </span>
-                    <ChevronDown className="w-3 h-3 opacity-50" />
+                    <ChevronDown className="w-2.5 h-2.5 md:w-3 md:h-3 opacity-50" />
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent

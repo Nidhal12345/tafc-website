@@ -1,15 +1,35 @@
 "use client"
 
 import Image from "next/image"
-import { useTranslations } from 'next-intl'
+import { useTranslations, useMessages } from 'next-intl'
 import { Link } from "@/i18n/navigation"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { categories } from "@/lib/categories"
 import { motion } from "framer-motion"
 
+type CategoryTranslation = {
+  name: string
+  description: string
+}
+
+type ProductsDataTranslations = {
+  categories: Record<string, CategoryTranslation>
+}
+
 export function Categories() {
   const t = useTranslations('categories')
+  const messages = useMessages()
+  const productsData = (messages.productsData as unknown) as ProductsDataTranslations | undefined
+
+  // Helper to get translated category name and description
+  const getTranslatedCategory = (slug: string, fallbackName: string, fallbackDesc: string) => {
+    const translation = productsData?.categories?.[slug]
+    return {
+      name: translation?.name || fallbackName,
+      description: translation?.description || fallbackDesc
+    }
+  }
 
   return (
     <section className="py-16 sm:py-20 md:py-28 lg:py-32 bg-gradient-to-b from-[#0a1628] to-[#0d1f35] relative overflow-hidden">
@@ -49,51 +69,54 @@ export function Categories() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((category) => (
-            <Link key={category.slug} href={`/products?category=${category.slug}`} className="block group h-full">
-              <div className="relative h-full bg-[#12253a]/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/[0.06] hover:border-cyan-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={category.image}
-                    alt={category.name}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    priority={false}
+          {categories.map((category) => {
+            const translated = getTranslatedCategory(category.slug, category.name, category.description)
+            return (
+              <Link key={category.slug} href={`/products?category=${category.slug}`} className="block group h-full">
+                <div className="relative h-full bg-[#12253a]/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/[0.06] hover:border-cyan-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={category.image}
+                      alt={translated.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      priority={false}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#12253a] via-[#12253a]/50 to-transparent" />
+
+                    {/* Product count badge */}
+                    <div className="absolute top-4 right-4">
+                      <span className="bg-white/10 backdrop-blur-md text-white text-xs font-medium px-3 py-1.5 rounded-full border border-white/10">
+                        {category.count}
+                      </span>
+                    </div>
+
+                    {/* Shimmer */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="font-bold text-xl text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                      {translated.name}
+                    </h3>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-4">{translated.description}</p>
+                    <div className="flex items-center gap-2 text-cyan-400 text-sm font-medium">
+                      <span>{t('viewProducts')}</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+
+                  <div
+                    className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{ boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.05)" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#12253a] via-[#12253a]/50 to-transparent" />
-
-                  {/* Product count badge */}
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-white/10 backdrop-blur-md text-white text-xs font-medium px-3 py-1.5 rounded-full border border-white/10">
-                      {category.count}
-                    </span>
-                  </div>
-
-                  {/* Shimmer */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
                 </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="font-bold text-xl text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                    {category.name}
-                  </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">{category.description}</p>
-                  <div className="flex items-center gap-2 text-cyan-400 text-sm font-medium">
-                    <span>{t('viewProducts')}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-
-                <div
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.05)" }}
-                />
-              </div>
-            </Link>
-          ))}
+              </Link>
+            )
+          })}
         </div>
 
         {/* CTA */}

@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-react" // Removed Globe
 import { FlagFR, FlagGB, FlagSA } from "@/components/icons/flag-icons"
+import { useLoading } from "@/components/ui/loading-provider"
 
 const flagComponents = {
     fr: FlagFR,
@@ -32,8 +33,15 @@ export function LanguageSwitcher() {
     const currentLocale = localeMetadata[locale]
     const CurrentFlag = flagComponents[locale] || FlagFR
 
+    // ... inside the component
+    const { startLoading } = useLoading()
+
     const handleLocaleChange = (newLocale: Locale) => {
-        router.replace(pathname, { locale: newLocale })
+        startLoading()
+        // Small delay to allow fade in
+        setTimeout(() => {
+            router.replace(pathname, { locale: newLocale })
+        }, 500)
     }
 
     // Helper to get short code (e.g., 'en-US' -> 'EN')

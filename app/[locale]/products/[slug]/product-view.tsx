@@ -3,8 +3,9 @@
 import Image from "next/image"
 import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton"
 import Link from "next/link"
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { ArrowLeft, ChevronRight, Fish, MapPin, Package, Snowflake, Sun, CheckCircle2, Ruler, Layers, Scale, ArrowRight, ZoomIn } from "lucide-react"
+import { ArrowLeft, ChevronRight, Fish, MapPin, Package, Snowflake, Sun, CheckCircle2, Ruler, Layers, Scale, ArrowRight, ZoomIn, Check } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -30,10 +31,16 @@ const whatsappNumber = "+21698621128"
 export function ProductView({ product, relatedProducts }: ProductViewProps) {
     const t = useTranslations("productsData.ui")
     const tNav = useTranslations("nav")
+    const [selectedVariant, setSelectedVariant] = useState<string | null>(null)
 
-    const whatsappMessage = encodeURIComponent(
-        `${tNav("whatsappMessage")} - ${product.name}`,
-    )
+    // Build WhatsApp message with optional selected variant
+    const buildWhatsAppMessage = () => {
+        let message = `${tNav("whatsappMessage")} - ${product.name}`
+        if (selectedVariant) {
+            message += ` (${selectedVariant})`
+        }
+        return encodeURIComponent(message)
+    }
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -230,7 +237,7 @@ export function ProductView({ product, relatedProducts }: ProductViewProps) {
                                     className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold h-14 rounded-xl shadow-lg shadow-green-900/10 flex-1"
                                 >
                                     <a
-                                        href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                                        href={`https://wa.me/${whatsappNumber}?text=${buildWhatsAppMessage()}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center justify-center gap-2"
@@ -318,14 +325,23 @@ export function ProductView({ product, relatedProducts }: ProductViewProps) {
                                             }
                                         }
 
+                                        const isSelected = selectedVariant === label
+
                                         return (
-                                            <div
+                                            <button
                                                 key={idx}
-                                                className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-700 shadow-sm hover:border-purple-300 hover:bg-purple-50/50 transition-colors"
+                                                type="button"
+                                                onClick={() => setSelectedVariant(isSelected ? null : label)}
+                                                className={cn(
+                                                    "inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium shadow-sm transition-all cursor-pointer",
+                                                    isSelected
+                                                        ? "bg-purple-100 border-2 border-purple-500 text-purple-800 ring-2 ring-purple-200"
+                                                        : "bg-white border border-slate-200 text-slate-700 hover:border-purple-300 hover:bg-purple-50/50"
+                                                )}
                                             >
-                                                {getIcon()}
+                                                {isSelected ? <Check className="w-4 h-4 text-purple-600" /> : getIcon()}
                                                 {label}
-                                            </div>
+                                            </button>
                                         )
                                     })}
                                 </div>
@@ -384,7 +400,7 @@ export function ProductView({ product, relatedProducts }: ProductViewProps) {
                         className="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl shadow-lg shadow-green-900/10"
                     >
                         <a
-                            href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                            href={`https://wa.me/${whatsappNumber}?text=${buildWhatsAppMessage()}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-2"

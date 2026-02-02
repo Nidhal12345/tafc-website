@@ -12,6 +12,7 @@
     "contact": "Contact",
     "menu": "Menu",
     "navigation": "Navigation",
+    "companyTagline": "Tunisian Algerian Fish Co.",
     "whatsappMessage": "Hello TAFC, I would like to learn more about your seafood products."
   },
 
@@ -291,7 +292,10 @@
       "email": "EMAIL",
       "phone": "PHONE",
       "message": "MESSAGE",
-      "submit": "Send message"
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
     }
   },
 
@@ -638,7 +642,7 @@
       "heroTitle": "Seafood — Discover",
       "heroHighlight": "Shrimp, Lobsters,",
       "heroSubtitle": "Fish & much more.",
-      "heroCatalog": "Catalog 2024-2025",
+      "heroCatalog": "Catalog 2025-2026",
       "heroDescription": "Our mission is to provide sustainable and highest quality seafood. That's why our entire selection comes from fishermen who, like us, are committed to responsible consumption and ocean protection.",
       "heroApprovedBy": "Approved by",
       "heroChefs": "+50 Chefs",

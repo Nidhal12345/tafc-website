@@ -12,6 +12,7 @@
     "contact": "Contact",
     "menu": "Menu",
     "navigation": "Navigation",
+    "companyTagline": "Tunisian Algerian Fish Co.",
     "whatsappMessage": "Bonjour TAFC, je souhaite en savoir plus sur vos produits de la mer."
   },
 
@@ -291,7 +292,10 @@
       "email": "EMAIL",
       "phone": "TÉLÉPHONE",
       "message": "MESSAGE",
-      "submit": "Envoyer le message"
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Échec de l'envoi. Veuillez réessayer."
     }
   },
 
@@ -638,7 +642,7 @@
       "heroTitle": "Seafood — Découvrez",
       "heroHighlight": "Crevettes, Langoustes,",
       "heroSubtitle": "Poissons & bien plus.",
-      "heroCatalog": "Catalogue 2024-2025",
+      "heroCatalog": "Catalogue 2025-2026",
       "heroDescription": "Notre mission est de fournir des produits de la mer durables et de la meilleure qualité. C'est pourquoi toute notre sélection provient de pêcheurs qui, comme nous, s'engagent pour une consommation responsable et la protection de nos océans.",
       "heroApprovedBy": "Approuvé par",
       "heroChefs": "+50 Chefs",

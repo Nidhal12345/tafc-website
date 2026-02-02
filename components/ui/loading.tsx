@@ -66,36 +66,44 @@ export function LoadingPulse({ className = "" }: { className?: string }) {
 // Premium App Loading Screen
 export function AppLoadingScreen() {
     return (
-        <div className="fixed inset-0 z-[9999] bg-[#042635] flex flex-col items-center justify-center">
+        <div className="fixed inset-0 z-[9999] bg-slate-50 flex flex-col items-center justify-center">
             {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#22C5C5_1px,_transparent_1px)] bg-[length:24px_24px]" />
+            <div className="absolute inset-0 opacity-[0.03]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#042635_1px,_transparent_1px)] bg-[length:32px_32px]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-100/50 to-slate-100" />
             </div>
 
             {/* Logo Animation */}
             <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="relative mb-8"
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="relative mb-12"
             >
-                {/* Animated Ring */}
+                {/* Animated Rings */}
                 <motion.div
-                    className="absolute -inset-4 rounded-full border-2 border-[#22C5C5]/30"
+                    className="absolute -inset-8 rounded-full border border-[#22C5C5]/10"
                     initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1.2, opacity: 0 }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
+                    animate={{ scale: 1.5, opacity: 0 }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
                 />
                 <motion.div
-                    className="absolute -inset-4 rounded-full border-2 border-[#22C5C5]/20"
+                    className="absolute -inset-8 rounded-full border border-[#22C5C5]/10"
                     initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1.4, opacity: 0 }}
-                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
+                    animate={{ scale: 1.5, opacity: 0 }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.5, ease: "easeOut" }}
                 />
 
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-[#22C5C5]/20 blur-3xl rounded-full" />
+
                 {/* Logo Container */}
-                <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20">
-                    <span className="text-3xl font-bold text-white tracking-tight">T</span>
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-3xl flex items-center justify-center border border-slate-200 shadow-[0_10px_40px_rgba(0,0,0,0.05)]">
+                    <img
+                        src="/logo.png"
+                        alt="TAFC"
+                        className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
+                    />
                 </div>
             </motion.div>
 
@@ -103,41 +111,13 @@ export function AppLoadingScreen() {
             <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                className="text-center mb-8"
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="text-center z-10"
             >
-                <h1 className="text-2xl font-bold text-white tracking-wider mb-1">TAFC</h1>
-                <p className="text-sm text-[#22C5C5] font-medium tracking-wide">Premium Seafood</p>
+                <h1 className="text-3xl font-bold text-[#042635] tracking-tight mb-2 font-sora">TAFC</h1>
+                <div className="h-px w-12 bg-gradient-to-r from-transparent via-[#22C5C5] to-transparent mx-auto mb-2" />
+                <p className="text-sm text-slate-500 font-medium tracking-[0.2em] uppercase">Premium Seafood</p>
             </motion.div>
-
-            {/* Loading Bar */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="w-48 h-1 bg-white/10 rounded-full overflow-hidden"
-            >
-                <motion.div
-                    className="h-full bg-gradient-to-r from-[#22C5C5] to-[#22C5C5]/50 rounded-full"
-                    initial={{ x: "-100%" }}
-                    animate={{ x: "100%" }}
-                    transition={{
-                        duration: 1,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                />
-            </motion.div>
-
-            {/* Loading Text */}
-            <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-                className="mt-6 text-sm text-white/40 font-medium"
-            >
-                Loading...
-            </motion.p>
         </div>
     )
 }

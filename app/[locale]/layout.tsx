@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Toaster } from "@/components/ui/toaster"
 import { routing, localeMetadata, type Locale } from "@/i18n/routing"
 import { cn } from "@/lib/utils"
+import { LoadingProvider } from "@/components/ui/loading-provider"
 import "../globals.css"
 
 // Optimized font loading with display swap for better performance
@@ -176,7 +177,9 @@ export default async function LocaleLayout({
                 )}
             >
                 <NextIntlClientProvider messages={messages}>
-                    {children}
+                    <LoadingProvider>
+                        {children}
+                    </LoadingProvider>
                 </NextIntlClientProvider>
                 <Toaster />
                 <Analytics />

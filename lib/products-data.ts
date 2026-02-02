@@ -642,7 +642,7 @@ export const products = [
     category: "Caviar & haute gastronomie",
     categorySlug: "caviar-haute-gastronomie",
     description:
-      "Caviar Osetra, grains dorés à ambrés, aux notes de noisette, parfait pour les cartes gastronomiques et accords mets & vodka.",
+      "Caviar Osetra, grains dorés à ambrés, aux notes de noisette, parfait pour les cartes gastronomiques et accords mets raffinés.",
     image: "/products/ossetra-caviar.jpeg",
     tags: ["Luxe", "Haute gastronomie"],
     origin: "Élevage contrôlé",

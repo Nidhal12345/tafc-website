@@ -79,7 +79,7 @@ export function BestSellers() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20 px-4"
         >
-          <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-10 tracking-tight relative inline-block">
+          <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-4 md:mb-6 tracking-tight relative inline-flex flex-col md:flex-row items-center gap-2 md:gap-3">
             <span className="block md:inline-block relative">
               {t('title').split(' ').map((word, i) => (
                 <span key={i} className={i === 1 ? "text-tafc-blue-dark relative" : ""}>
@@ -87,6 +87,13 @@ export function BestSellers() {
                 </span>
               ))}
             </span>
+            <Image
+              src="/icons8-best-seller-94.png"
+              alt="Best Seller"
+              width={48}
+              height={48}
+              className="w-10 h-10 md:w-12 md:h-12 inline-block"
+            />
           </h2>
 
           <div className="flex flex-col items-center gap-6">
